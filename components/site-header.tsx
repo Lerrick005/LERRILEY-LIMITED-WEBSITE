@@ -29,6 +29,7 @@ type NavItem = {
 const NAV: readonly NavItem[] = [
   { href: "/", label: "Home", match: ["/"] },
   { href: "/solutions", label: "Solutions", match: ["/solutions"] },
+  { href: "/industries", label: "Industries", match: ["/industries"] },
   { href: "/technology", label: "Technology", match: ["/technology"] },
   { href: "/company", label: "Company", match: ["/company"] },
   { href: "/insights", label: "Insights", match: ["/insights"] },
