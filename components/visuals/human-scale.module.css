@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Human-scale composition
+   --------------------------------------------------------------------------
+   A group of dots, each with unique size, position, and drift timing.
+   On hover, a dot brightens and enlarges slightly. Under reduced motion,
+   dots hold still and only the hover interaction remains.
+   ========================================================================== */
+
+   .wrapper {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .dot,
+  .dotHighlight {
+    fill: var(--accent);
+    transform-origin: center;
+    animation-name: drift;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transition:
+      opacity 200ms ease,
+      r 200ms ease,
+      filter 200ms ease;
+    opacity: 0.55;
+  }
+
+  .dotHighlight {
+    opacity: 0.9;
+  }
+
+  .dot:hover,
+  .dotHighlight:hover {
+    opacity: 1;
+    filter: drop-shadow(
+      0 0 4px color-mix(in srgb, var(--accent) 70%, transparent)
+    );
+  }
+
+  @keyframes drift {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    33% {
+      transform: translate(2px, -3px);
+    }
+    66% {
+      transform: translate(-2px, 2px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot,
+    .dotHighlight {
+      animation: none;
+    }
+  }

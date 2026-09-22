@@ -33,6 +33,7 @@ const NAV: readonly NavItem[] = [
   { href: "/work", label: "Work", match: ["/work"] },
   { href: "/technology", label: "Technology", match: ["/technology"] },
   { href: "/company", label: "Company", match: ["/company"] },
+  { href: "/careers", label: "Careers", match: ["/careers"] },
   { href: "/insights", label: "Insights", match: ["/insights"] },
 ];
 
