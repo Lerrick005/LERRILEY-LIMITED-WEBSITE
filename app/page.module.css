@@ -28,8 +28,18 @@
      -------------------------------------------------------------------------- */
 
   .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-16);
     padding: var(--s-32) 0 var(--s-24);
+  }
+
+  .heroContent {
     max-width: var(--w-content);
+  }
+
+  .heroVisual {
+    width: 100%;
   }
 
   .heroEyebrow {

@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Pipeline diagram
+   --------------------------------------------------------------------------
+   Inline SVG. The line is a hairline in --border. Nodes are small gold
+   circles. Labels use the mono font. A single dot travels the line on a
+   slow CSS keyframe. Everything is disabled under prefers-reduced-motion.
+   ========================================================================== */
+
+   .wrapper {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .line {
+    stroke: var(--border);
+    stroke-width: 1;
+    stroke-linecap: round;
+  }
+
+  .node {
+    fill: var(--bg);
+    stroke: var(--accent);
+    stroke-width: 1.5;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    fill: var(--text-secondary);
+  }
+
+  .dot {
+    fill: var(--accent);
+    cx: 40;
+    animation: travel 6s linear infinite;
+  }
+
+  @keyframes travel {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(600px);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot {
+      animation: none;
+      opacity: 0;
+    }
+  }

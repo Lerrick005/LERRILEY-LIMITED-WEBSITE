@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { company } from "@/content/company";
 import { getSolutions } from "@/content/solutions";
+import { PipelineDiagram } from "@/components/pipeline-diagram";
 
 import styles from "./page.module.css";
 
@@ -26,22 +27,27 @@ export default function HomePage() {
       <main id="main" className={styles.main}>
         {/* --- Hero ------------------------------------------------------ */}
         <section className={styles.hero} aria-labelledby="hero-title">
-          <p className={styles.heroEyebrow}>{company.primaryMarket}</p>
-          <h1 id="hero-title" className={styles.heroTitle}>
-            {company.tagline}
-          </h1>
-          <p className={styles.heroLead}>
-            Lerriley designs and builds web platforms, business software, AI
-            solutions, data systems and intelligent digital products for
-            organizations ready to solve meaningful problems with technology.
-          </p>
-          <div className={styles.heroActions}>
-            <Link href="/contact" className={`${styles.button} ${styles.buttonPrimary}`}>
-              Start a Project
-            </Link>
-            <Link href="/solutions" className={`${styles.button} ${styles.buttonSecondary}`}>
-              Explore Capabilities
-            </Link>
+          <div className={styles.heroContent}>
+            <p className={styles.heroEyebrow}>{company.primaryMarket}</p>
+            <h1 id="hero-title" className={styles.heroTitle}>
+              {company.tagline}
+            </h1>
+            <p className={styles.heroLead}>
+              Lerriley designs and builds web platforms, business software, AI
+              solutions, data systems and intelligent digital products for
+              organizations ready to solve meaningful problems with technology.
+            </p>
+            <div className={styles.heroActions}>
+              <Link href="/contact" className={`${styles.button} ${styles.buttonPrimary}`}>
+                Start a Project
+              </Link>
+              <Link href="/solutions" className={`${styles.button} ${styles.buttonSecondary}`}>
+                Explore Capabilities
+              </Link>
+            </div>
+          </div>
+          <div className={styles.heroVisual}>
+            <PipelineDiagram />
           </div>
         </section>
 
