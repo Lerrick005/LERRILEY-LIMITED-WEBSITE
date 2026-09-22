@@ -1,261 +1,108 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Company page
    --------------------------------------------------------------------------
-   Editorial interior page. Header block, then three sections: beliefs
-   (numbered list), approach (prose), vision (prose). Closing CTA. Uses
-   the same tokens and rhythm as the home page.
+   Page-scoped styles only. Shared patterns (buttons, headers, CTA,
+   footer line) come from components/design-system and components/sections.
    ========================================================================== */
 
-   .page {
-    width: 100%;
-    max-width: var(--w-full);
-    margin: 0 auto;
-    padding: 0 var(--s-6) var(--s-24);
-  }
+.page {
+  width: 100%;
+  max-width: var(--w-full);
+  margin: 0 auto;
+  padding: 0 var(--s-6) var(--s-24);
+}
 
-  .header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-12);
-    padding: var(--s-24) 0 var(--s-16);
-    border-bottom: 1px solid var(--border);
-    align-items: center;
-  }
+/* --- Sections ----------------------------------------------------------- */
 
-  @media (min-width: 720px) {
-    .header {
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: var(--s-16);
-    }
-  }
+.section {
+  padding: var(--s-24) 0;
+  border-top: 1px solid var(--border);
+}
 
-  .headerContent {
-    max-width: var(--w-content);
-  }
+.section:first-of-type {
+  border-top: 0;
+}
 
-  .headerVisual {
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
-  }
+.sectionEyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s-4) 0;
+}
 
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 var(--s-4) 0;
-  }
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 var(--s-8) 0;
+  max-width: var(--w-content);
+  text-wrap: balance;
+}
 
-  .title {
-    font-family: var(--font-display);
-    font-size: var(--fs-h1);
-    font-weight: 400;
-    line-height: var(--lh-tight);
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin: 0 0 var(--s-6) 0;
-    text-wrap: balance;
-  }
+.prose {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  max-width: 62ch;
+  margin: 0;
+  text-wrap: pretty;
+}
 
-  .lead {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0;
-    max-width: 62ch;
-    text-wrap: pretty;
-  }
+/* --- Beliefs list ------------------------------------------------------- */
 
-  /* --- Section skeleton --------------------------------------------------- */
+.beliefList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s-10) var(--s-12);
+}
 
+.beliefItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.beliefNumber {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.beliefTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+}
+
+.beliefBody {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 42ch;
+  text-wrap: pretty;
+}
+
+/* --- Responsive --------------------------------------------------------- */
+
+@media (max-width: 640px) {
   .section {
-    padding: var(--s-24) 0;
-    border-top: 1px solid var(--border);
+    padding: var(--s-16) 0;
   }
-
-  .section:first-of-type {
-    border-top: 0;
-  }
-
-  .sectionEyebrow {
-    font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 var(--s-4) 0;
-  }
-
-  .sectionTitle {
-    font-family: var(--font-display);
-    font-size: var(--fs-h2);
-    font-weight: 400;
-    line-height: var(--lh-heading);
-    letter-spacing: -0.01em;
-    color: var(--text);
-    margin: 0 0 var(--s-8) 0;
-    max-width: var(--w-content);
-    text-wrap: balance;
-  }
-
-  .prose {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    max-width: 62ch;
-    margin: 0;
-    text-wrap: pretty;
-  }
-
-  /* --- Beliefs list ------------------------------------------------------- */
-
-  .beliefList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--s-10) var(--s-12);
-  }
-
-  .beliefItem {
-    display: flex;
-    flex-direction: column;
-    gap: var(--s-3);
-  }
-
-  .beliefNumber {
-    font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    line-height: 1;
-  }
-
-  .beliefTitle {
-    font-family: var(--font-display);
-    font-size: var(--fs-h3);
-    font-weight: 400;
-    line-height: var(--lh-heading);
-    letter-spacing: -0.01em;
-    color: var(--text);
-    margin: 0;
-  }
-
-  .beliefBody {
-    font-size: var(--fs-body);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0;
-    max-width: 42ch;
-    text-wrap: pretty;
-  }
-
-  /* --- Closing CTA -------------------------------------------------------- */
-
-  .ctaLayout {
-    max-width: var(--w-content);
-  }
-
-  .ctaHeading {
-    font-family: var(--font-display);
-    font-size: var(--fs-h1);
-    font-weight: 400;
-    line-height: var(--lh-tight);
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin: 0 0 var(--s-6) 0;
-    text-wrap: balance;
-  }
-
-  .ctaBody {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0 0 var(--s-10) 0;
-    max-width: 56ch;
-    text-wrap: pretty;
-  }
-
-  .ctaActions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s-4);
-    align-items: center;
-  }
-
-  /* --- Buttons ------------------------------------------------------------ */
-
-  .buttonPrimary,
-  .buttonSecondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: var(--s-3) var(--s-6);
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1;
-    text-decoration: none;
-    border-radius: var(--r-2);
-    border: 1px solid transparent;
-    transition:
-      background-color var(--t-fast),
-      color var(--t-fast),
-      border-color var(--t-fast);
-    white-space: nowrap;
-  }
-
-  .buttonPrimary {
-    background: var(--accent);
-    color: var(--text-inverse);
-    border-color: var(--accent);
-  }
-
-  .buttonPrimary:hover {
-    background: var(--accent-hover);
-    border-color: var(--accent-hover);
-    color: var(--text-inverse);
-  }
-
-  .buttonSecondary {
-    background: transparent;
-    color: var(--text);
-    border-color: var(--border);
-  }
-
-  .buttonSecondary:hover {
-    color: var(--accent-hover);
-    border-color: var(--accent);
-  }
-
-  /* --- Company name footer line ------------------------------------------- */
-
-  .companyName {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    margin: var(--s-16) 0 0 0;
-    padding-top: var(--s-6);
-    border-top: 1px solid var(--border);
-  }
-
-  /* --- Responsive --------------------------------------------------------- */
-
-  @media (max-width: 640px) {
-    .header {
-      padding: var(--s-16) 0 var(--s-12);
-    }
-
-    .section {
-      padding: var(--s-16) 0;
-    }
-  }
+}
