@@ -6,6 +6,7 @@ import { getSolutions } from "@/content/solutions";
 import { PipelineDiagram } from "@/components/pipeline-diagram";
 import { processSteps } from "@/content/process";
 import { getTechnologySummary } from "@/content/technology";
+import { howWeWork } from "@/content/work";
 
 import styles from "./page.module.css";
 
@@ -203,16 +204,26 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* --- Real work ------------------------------------------------ */}
-        {/* TODO: Step 26 - Published case studies only. Hidden until verified. */}
+        {/* --- Real work ------------------------------------------------
+            Published case studies only. Until real case studies exist,
+            this section renders the honest alternative: a statement of
+            how Lerriley works, with no fabricated projects. */}
         <section className={styles.section} aria-labelledby="work-title">
-          <p className={styles.sectionEyebrow}>Work</p>
+          <p className={styles.sectionEyebrow}>{howWeWork.eyebrow}</p>
           <h2 id="work-title" className={styles.sectionTitle}>
-            What we have built
+            {howWeWork.heading}
           </h2>
-          <p className={styles.sectionPlaceholder}>
-            Section content arrives in a later step.
-          </p>
+          <div className={styles.workProse}>
+            {howWeWork.paragraphs.map((p) => (
+              <p key={p.slice(0, 40)}>{p}</p>
+            ))}
+          </div>
+          <div className={styles.capabilitiesFooter}>
+            <Link href="/contact" className={styles.capabilitiesFooterLink}>
+              Start a conversation
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </section>
 
         {/* --- Industries ----------------------------------------------- */}

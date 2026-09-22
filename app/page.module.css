@@ -430,6 +430,28 @@
     margin: 0;
   }
 
+  /* --- Work section ---------------------------------------------------------
+     Editorial prose. Deliberately plain: no image grid, no client logos, no
+     stat wall. Until real case studies exist, this section explains the
+     publishing standard rather than faking a portfolio.
+     -------------------------------------------------------------------------- */
+
+  .workProse {
+    max-width: 60ch;
+  }
+
+  .workProse p {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-body);
+    color: var(--text-secondary);
+    margin: 0 0 var(--s-6) 0;
+    text-wrap: pretty;
+  }
+
+  .workProse p:last-child {
+    margin-bottom: 0;
+  }
+
   /* --- Responsive ----------------------------------------------------------- */
 
   @media (max-width: 900px) {
