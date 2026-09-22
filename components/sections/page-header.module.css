@@ -1,0 +1,39 @@
+﻿/* ==========================================================================
+   PageHeader
+   ========================================================================== */
+
+.header {
+  padding: var(--s-24) 0 var(--s-16);
+  max-width: var(--w-content);
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  /* No bottom margin override; the Eyebrow component's default applies. */
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 var(--s-6) 0;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: var(--s-16) 0 var(--s-12);
+  }
+}

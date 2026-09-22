@@ -1,0 +1,14 @@
+﻿/* ==========================================================================
+   FooterLine
+   ========================================================================== */
+
+.line {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: var(--s-16) 0 0 0;
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--border);
+}
