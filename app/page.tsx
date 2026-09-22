@@ -1,95 +1,211 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+
+import { company } from "@/content/company";
+
 import styles from "./page.module.css";
 
-export default function Home() {
+export const metadata: Metadata = {
+  // No `title` here, so layout.tsx's `default` applies. That renders:
+  //   "Lerriley Limited - Technology engineered around real-world problems."
+  // If we set a title here, layout.tsx's template would append
+  // " | Lerriley Limited" to it, which would duplicate the brand on the
+  // home page. So we deliberately omit it.
+  description: company.positioning,
+  alternates: {
+    canonical: "/",
+  },
+};
+
+export default function HomePage() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <main id="main" className={styles.main}>
+        {/* --- Hero ------------------------------------------------------ */}
+        <section className={styles.hero} aria-labelledby="hero-title">
+          <p className={styles.heroEyebrow}>{company.primaryMarket}</p>
+          <h1 id="hero-title" className={styles.heroTitle}>
+            {company.tagline}
+          </h1>
+          <p className={styles.heroLead}>
+            Lerriley designs and builds web platforms, business software, AI
+            solutions, data systems and intelligent digital products for
+            organizations ready to solve meaningful problems with technology.
+          </p>
+          <div className={styles.heroActions}>
+            <Link href="/contact" className={`${styles.button} ${styles.buttonPrimary}`}>
+              Start a Project
+            </Link>
+            <Link href="/solutions" className={`${styles.button} ${styles.buttonSecondary}`}>
+              Explore Capabilities
+            </Link>
+          </div>
+        </section>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+        {/* --- The problem ---------------------------------------------- */}
+        <section className={styles.section} aria-labelledby="problem-title">
+          <p className={styles.sectionEyebrow}>The Problem</p>
+          <div className={styles.problemLayout}>
+            <div className={styles.problemProse}>
+              <h2 id="problem-title" className={styles.sectionTitle}>
+                Real workflows, not templates
+              </h2>
+              <p>
+                Most organizations do not have a technology problem. They have
+                a process problem that technology has not solved yet. The work
+                is fragmented across spreadsheets, chat threads and paper. The
+                same information is typed more than once. Decisions are made
+                without a clear view of what is actually happening.
+              </p>
+              <p>
+                Lerriley starts by understanding the workflow as it exists.
+                Then we design the system around it, and engineer the solution
+                with the technology that fits the problem. The result is
+                software that matches how the organization actually works,
+                not a template it has to work around.
+              </p>
+            </div>
+            <ul className={styles.problemList}>
+              <li className={styles.problemListItem}>
+                <span className={styles.problemIndex}>01</span>
+                <p className={styles.problemText}>
+                  Processes spread across spreadsheets, chat threads and paper.
+                </p>
+              </li>
+              <li className={styles.problemListItem}>
+                <span className={styles.problemIndex}>02</span>
+                <p className={styles.problemText}>
+                  The same information recorded in more than one place, in
+                  more than one format.
+                </p>
+              </li>
+              <li className={styles.problemListItem}>
+                <span className={styles.problemIndex}>03</span>
+                <p className={styles.problemText}>
+                  Reporting assembled by hand, days after the decisions it
+                  should have informed.
+                </p>
+              </li>
+              <li className={styles.problemListItem}>
+                <span className={styles.problemIndex}>04</span>
+                <p className={styles.problemText}>
+                  Systems that no longer match how the organization actually
+                  operates.
+                </p>
+              </li>
+              <li className={styles.problemListItem}>
+                <span className={styles.problemIndex}>05</span>
+                <p className={styles.problemText}>
+                  Data available, but not structured for anyone to use it.
+                </p>
+              </li>
+              <li className={styles.problemListItem}>
+                <span className={styles.problemIndex}>06</span>
+                <p className={styles.problemText}>
+                  Manual work that repeats the same steps every day and
+                  produces the same avoidable errors.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* --- What we build -------------------------------------------- */}
+        {/* TODO: Step 21 - Capability list, six entries, links to solution pages. */}
+        <section className={styles.section} aria-labelledby="capabilities-title">
+          <p className={styles.sectionEyebrow}>What We Build</p>
+          <h2 id="capabilities-title" className={styles.sectionTitle}>
+            Six engineering capabilities
+          </h2>
+          <p className={styles.sectionPlaceholder}>
+            Section content arrives in a later step.
+          </p>
+        </section>
+
+        {/* --- Engineering process -------------------------------------- */}
+        {/* TODO: Step 22 - ProcessStepper, seven steps from spec section 6.6. */}
+        <section className={styles.section} aria-labelledby="process-title">
+          <p className={styles.sectionEyebrow}>How We Work</p>
+          <h2 id="process-title" className={styles.sectionTitle}>
+            The engineering process
+          </h2>
+          <p className={styles.sectionPlaceholder}>
+            Section content arrives in a later step.
+          </p>
+        </section>
+
+        {/* --- Technology ----------------------------------------------- */}
+        {/* TODO: Step 23 - Technology summary, links to /technology. */}
+        <section className={styles.section} aria-labelledby="technology-title">
+          <p className={styles.sectionEyebrow}>Technology</p>
+          <h2 id="technology-title" className={styles.sectionTitle}>
+            Chosen for the problem, not the fashion
+          </h2>
+          <p className={styles.sectionPlaceholder}>
+            Section content arrives in a later step.
+          </p>
+        </section>
+
+        {/* --- Real work ------------------------------------------------ */}
+        {/* TODO: Step 24 - Published case studies only. Hidden until verified. */}
+        <section className={styles.section} aria-labelledby="work-title">
+          <p className={styles.sectionEyebrow}>Work</p>
+          <h2 id="work-title" className={styles.sectionTitle}>
+            What we have built
+          </h2>
+          <p className={styles.sectionPlaceholder}>
+            Section content arrives in a later step.
+          </p>
+        </section>
+
+        {/* --- Industries ----------------------------------------------- */}
+        {/* TODO: Step 25 - Industries summary, links to /industries. */}
+        <section className={styles.section} aria-labelledby="industries-title">
+          <p className={styles.sectionEyebrow}>Industries</p>
+          <h2 id="industries-title" className={styles.sectionTitle}>
+            Where we work
+          </h2>
+          <p className={styles.sectionPlaceholder}>
+            Section content arrives in a later step.
+          </p>
+        </section>
+
+        {/* --- Insights ------------------------------------------------ */}
+        {/* TODO: Step 26 - Latest published articles. */}
+        <section className={styles.section} aria-labelledby="insights-title">
+          <p className={styles.sectionEyebrow}>Insights</p>
+          <h2 id="insights-title" className={styles.sectionTitle}>
+            Notes on engineering
+          </h2>
+          <p className={styles.sectionPlaceholder}>
+            Section content arrives in a later step.
+          </p>
+        </section>
+
+        {/* --- Trust ---------------------------------------------------- */}
+        {/* TODO: Step 27 - Evidence only. Omitted entirely until verified data exists. */}
+        <section className={styles.section} aria-labelledby="trust-title">
+          <p className={styles.sectionEyebrow}>Trust</p>
+          <h2 id="trust-title" className={styles.sectionTitle}>
+            How we work with you
+          </h2>
+          <p className={styles.sectionPlaceholder}>
+            Section content arrives in a later step.
+          </p>
+        </section>
+
+        {/* --- Closing CTA --------------------------------------------- */}
+        {/* TODO: Step 28 - Start a Project closing CTA block. */}
+        <section className={styles.section} aria-labelledby="cta-title">
+          <p className={styles.sectionEyebrow}>Start</p>
+          <h2 id="cta-title" className={styles.sectionTitle}>
+            Start a project
+          </h2>
+          <p className={styles.sectionPlaceholder}>
+            Section content arrives in a later step.
+          </p>
+        </section>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }

@@ -1,167 +1,232 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+/* ==========================================================================
+   Home page styles
+   --------------------------------------------------------------------------
+   Page-scoped styles. Component-level styling lives in components/*.module.css.
+   These rules cover the hero, the problem section, and the section skeleton.
+   ========================================================================== */
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
-}
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
+   .page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
   }
 
   .main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--w-full);
+    margin: 0 auto;
+    padding: 0 var(--s-6);
+  }
+
+  /* --- Hero -----------------------------------------------------------------
+     Asymmetric editorial layout. Left-weighted headline, restrained support
+     line, two CTAs. The visual on the right (spec section 6.2: an engineered
+     SVG pipeline) is added in a later step; for now the hero is a single
+     column with a max-width so the type stays readable.
+     -------------------------------------------------------------------------- */
+
+  .hero {
+    padding: var(--s-32) 0 var(--s-24);
+    max-width: var(--w-content);
+  }
+
+  .heroEyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 var(--s-6) 0;
+  }
+
+  .heroTitle {
+    font-family: var(--font-display);
+    font-size: var(--fs-display);
+    font-weight: 400;
+    line-height: var(--lh-tight);
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin: 0 0 var(--s-8) 0;
+    text-wrap: balance;
+  }
+
+  .heroLead {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-body);
+    color: var(--text-secondary);
+    max-width: 58ch;
+    margin: 0 0 var(--s-12) 0;
+    text-wrap: pretty;
+  }
+
+  .heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-4);
     align-items: center;
   }
 
-  .main ol {
-    text-align: center;
-  }
+  /* --- Buttons --------------------------------------------------------------
+     Two styles only: primary (gold) and secondary (outlined). Both are anchor
+     elements here; the Button component arrives in a later step and shares
+     these visuals.
+     -------------------------------------------------------------------------- */
 
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
+  .button {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: var(--s-2);
+    min-height: 48px;
+    padding: var(--s-3) var(--s-6);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: var(--r-2);
+    border: 1px solid transparent;
+    transition:
+      background-color var(--t-fast),
+      color var(--t-fast),
+      border-color var(--t-fast);
+    white-space: nowrap;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+  .buttonPrimary {
+    background: var(--accent);
+    color: var(--text-inverse);
+    border-color: var(--accent);
   }
-}
+
+  .buttonPrimary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--text-inverse);
+  }
+
+  .buttonSecondary {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .buttonSecondary:hover {
+    color: var(--accent-hover);
+    border-color: var(--accent);
+  }
+
+  /* --- Section skeleton -----------------------------------------------------
+     The remaining homepage sections are stubbed with correct headings and
+     spacing. Each will be replaced by a real component in a later step.
+     -------------------------------------------------------------------------- */
+
+  .section {
+    padding: var(--s-24) 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .sectionEyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 var(--s-4) 0;
+  }
+
+  .sectionTitle {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    font-weight: 400;
+    line-height: var(--lh-heading);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0 0 var(--s-6) 0;
+    max-width: var(--w-content);
+    text-wrap: balance;
+  }
+
+  .sectionPlaceholder {
+    font-size: var(--fs-body);
+    color: var(--text-secondary);
+    max-width: var(--w-content);
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* --- The Problem section --------------------------------------------------
+     Editorial two-column layout: heading and prose on the left, a numbered
+     list of common problems on the right. Stacks to a single column below
+     900px. Deliberately not a card grid (spec section 4.3).
+     -------------------------------------------------------------------------- */
+
+  .problemLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--s-16);
+    align-items: start;
+  }
+
+  .problemProse p {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-body);
+    color: var(--text-secondary);
+    max-width: 52ch;
+    margin: 0 0 var(--s-6) 0;
+    text-wrap: pretty;
+  }
+
+  .problemProse p:last-child {
+    margin-bottom: 0;
+  }
+
+  .problemList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .problemListItem {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: var(--s-4);
+    padding: var(--s-5) 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+
+  .problemIndex {
+    font-family: var(--font-mono);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .problemText {
+    font-size: var(--fs-body);
+    line-height: 1.45;
+    color: var(--text);
+    margin: 0;
+  }
+
+  /* --- Responsive ----------------------------------------------------------- */
+
+  @media (max-width: 900px) {
+    .problemLayout {
+      grid-template-columns: 1fr;
+      gap: var(--s-12);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: var(--s-20) 0 var(--s-16);
+    }
+  }
