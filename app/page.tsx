@@ -8,6 +8,7 @@ import { processSteps } from "@/content/process";
 import { getTechnologySummary } from "@/content/technology";
 import { howWeWork } from "@/content/work";
 import { insightCategories, insightsStatus } from "@/content/insights";
+import { trustPrinciples } from "@/content/trust";
 
 import styles from "./page.module.css";
 
@@ -264,16 +265,25 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* --- Trust ---------------------------------------------------- */}
-        {/* TODO: Step 29 - Evidence only. Omitted entirely until verified data exists. */}
+        {/* --- Trust ----------------------------------------------------
+            Four principles of how Lerriley works. No client names, no
+            certifications, no statistics, no logos. When verified evidence
+            exists, an additional evidence block is added above these
+            principles without replacing them. */}
         <section className={styles.section} aria-labelledby="trust-title">
           <p className={styles.sectionEyebrow}>Trust</p>
           <h2 id="trust-title" className={styles.sectionTitle}>
             How we work with you
           </h2>
-          <p className={styles.sectionPlaceholder}>
-            Section content arrives in a later step.
-          </p>
+          <ol className={styles.trustList}>
+            {trustPrinciples.map((principle) => (
+              <li key={principle.number} className={styles.trustItem}>
+                <span className={styles.trustNumber}>{principle.number}</span>
+                <h3 className={styles.trustTitle}>{principle.title}</h3>
+                <p className={styles.trustBody}>{principle.body}</p>
+              </li>
+            ))}
+          </ol>
         </section>
 
         {/* --- Closing CTA --------------------------------------------- */}
