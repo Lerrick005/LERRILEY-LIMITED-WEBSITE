@@ -30,6 +30,7 @@ const NAV: readonly NavItem[] = [
   { href: "/", label: "Home", match: ["/"] },
   { href: "/solutions", label: "Solutions", match: ["/solutions"] },
   { href: "/company", label: "Company", match: ["/company"] },
+  { href: "/insights", label: "Insights", match: ["/insights"] },
 ];
 
 export function SiteHeader() {

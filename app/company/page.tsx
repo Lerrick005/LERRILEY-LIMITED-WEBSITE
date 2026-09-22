@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { Breadcrumbs } from "@/components/breadcrumbs";
 import { company } from "@/content/company";
 import { companyPage } from "@/content/company-page";
 
@@ -19,15 +18,6 @@ export const metadata: Metadata = {
 export default function CompanyPageRoute() {
   return (
     <main id="main" className={styles.page}>
-      <div className={styles.breadcrumbsWrap}>
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Company" },
-          ]}
-        />
-      </div>
-
       <header className={styles.header}>
         <p className={styles.eyebrow}>{companyPage.eyebrow}</p>
         <h1 className={styles.title}>{companyPage.heading}</h1>

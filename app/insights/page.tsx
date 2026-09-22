@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { Breadcrumbs } from "@/components/breadcrumbs";
 import { loadCollection } from "@/lib/content/loader";
 import { InsightFrontmatterSchema } from "@/lib/content/schemas";
 
@@ -21,12 +20,6 @@ export default function InsightsIndexPage() {
 
   return (
     <main id="main" className={styles.page}>
-      <div className={styles.breadcrumbsWrap}>
-        <Breadcrumbs
-          items={[{ label: "Home", href: "/" }, { label: "Insights" }]}
-        />
-      </div>
-
       <header className={styles.header}>
         <p className={styles.eyebrow}>Insights</p>
         <h1 className={styles.title}>Notes on engineering</h1>

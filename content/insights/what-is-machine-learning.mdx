@@ -1,0 +1,69 @@
+
+---
+title: "What is machine learning, and when a business does not need it"
+slug: "what-is-machine-learning"
+description: "A plain explanation of what machine learning actually does, and the cases where a simpler approach is the correct engineering decision."
+searchIntent: informational
+primaryTopic: "Machine learning"
+secondaryTopics:
+  - "When not to use machine learning"
+  - "Predictive modeling"
+audience: "Business and technical decision-makers evaluating whether ML fits a problem"
+relatedSolution: "machine-learning"
+cta: "discuss-data"
+author: "Lerriley Limited"
+publishedAt: "2026-09-22"
+reviewBy: "Lerriley Limited"
+status: published
+---
+
+Machine learning is a method for teaching a computer to make predictions or decisions from examples, rather than from rules written by a person. Instead of an engineer writing "if the order value is above 10,000 and the customer is new, flag it," the engineer provides many examples of flagged and unflagged orders, and the system learns the pattern.
+
+That is the whole idea. Everything else is detail.
+
+## What machine learning is good at
+
+Machine learning works well when the pattern is real but hard to write down. Three categories cover most business cases:
+
+**Prediction from historical data.** Forecasting demand, estimating delivery times, scoring leads by likelihood to convert. If the future resembles the past in a measurable way, a model can often learn the relationship.
+
+**Classification.** Deciding which category something belongs to. Is this transaction fraudulent? Is this support ticket urgent? Is this document a receipt or an invoice?
+
+**Anomaly detection.** Noticing when something is different from the norm. Unusual network activity, unusual transaction patterns, unusual equipment readings.
+
+In each case, the underlying relationship exists but resists being written as explicit rules. There are too many variables, or the interactions between them are too complex, or the rules change over time.
+
+## What machine learning is not good at
+
+Machine learning is not good at problems where the rule **is** the answer. If the correct behavior is "orders over 10,000 KES require manager approval," that is a business rule. Writing it as code is correct, fast, and auditable. Training a model to approximate it is slower, more expensive, less accurate, and impossible to explain to an auditor.
+
+This is the most common mistake in this area. Businesses approach machine learning as a general-purpose improvement, when in fact it is a specific tool for a specific class of problem.
+
+## When a business does not need machine learning
+
+Here is the honest list of cases where a simpler approach is the correct engineering decision:
+
+- **The rule is known.** If you can write it down, write it down. A rule is faster, cheaper, more accurate, and explainable.
+- **You do not have enough examples.** Machine learning needs data. A model trained on forty examples will be unreliable. If the data does not exist yet, the first step is collecting data, not building a model.
+- **The data is not clean.** Models inherit the problems in their training data. If the underlying records are incomplete, inconsistent, or unreliable, the model will reproduce those issues at scale.
+- **The cost of a wrong prediction is high and the model is uncertain.** In some contexts, a wrong answer is worse than no answer.
+- **The problem changes faster than a model can be retrained.** If the pattern shifts weekly, no model stays current without continuous retraining.
+- **A person doing this manually is fine.** Not every process needs automating.
+
+## What the engineering decision actually looks like
+
+The right question is not "can machine learning solve this?" The right question is "what is the simplest system that solves this reliably?"
+
+The order of consideration is:
+
+1. **Can a written rule solve it?** Write the rule.
+2. **Can a simple statistical method solve it?** Use the simpler method.
+3. **Does the problem require learning from examples?** Then machine learning is appropriate.
+
+Machine learning is powerful where it is appropriate. It is expensive and fragile where it is not. Choosing correctly is part of the engineering.
+
+## Where it fits in a system
+
+In practice, a machine learning model is one component of a larger system. Data flows in from wherever the organization stores it. The model produces a prediction. That prediction is used somewhere — in a dashboard, in a workflow, in an alert. The system around the model is usually more work than the model itself.
+
+This is why we treat machine learning as one capability among several rather than as a standalone product. The value comes from how it fits into the workflow, not from the model in isolation.

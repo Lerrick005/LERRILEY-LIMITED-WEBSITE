@@ -9,10 +9,6 @@
     padding: 0 var(--s-6) var(--s-24);
   }
 
-  .breadcrumbsWrap {
-    padding: var(--s-8) 0 0;
-  }
-
   .header {
     padding: var(--s-16) 0 var(--s-16);
     max-width: var(--w-content);

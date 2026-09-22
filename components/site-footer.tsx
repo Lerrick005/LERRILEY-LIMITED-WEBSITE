@@ -48,6 +48,11 @@ export function SiteFooter() {
                 Solutions
               </Link>
             </li>
+            <li>
+              <Link href="/insights" className={styles.link}>
+                Insights
+              </Link>
+            </li>
           </ul>
         </nav>
 
