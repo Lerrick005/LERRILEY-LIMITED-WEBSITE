@@ -573,6 +573,45 @@
     text-wrap: pretty;
   }
 
+  /* --- Industries section ---------------------------------------------------
+     Five industries in a grid. Each block: serif label, sans description.
+     No icons, no logos, no client names. Text-only to match the site's
+     editorial approach.
+     -------------------------------------------------------------------------- */
+
+  .industryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--s-8) var(--s-10);
+    border-top: 1px solid var(--border);
+    padding-top: var(--s-8);
+  }
+
+  .industryBlock {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+  .industryLabel {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    line-height: var(--lh-heading);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .industryText {
+    font-size: var(--fs-body);
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+    text-wrap: pretty;
+    max-width: 40ch;
+  }
+
   /* --- Responsive ----------------------------------------------------------- */
 
   @media (max-width: 900px) {

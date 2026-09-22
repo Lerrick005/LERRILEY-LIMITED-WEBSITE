@@ -10,6 +10,7 @@ import { howWeWork } from "@/content/work";
 import { insightCategories, insightsStatus } from "@/content/insights";
 import { trustPrinciples } from "@/content/trust";
 import { closingCta } from "@/content/closing-cta";
+import { industries } from "@/content/industries";
 
 import styles from "./page.module.css";
 
@@ -229,16 +230,24 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* --- Industries ----------------------------------------------- */}
-        {/* TODO: Step 27 - Industries summary, links to /industries. */}
+        {/* --- Industries ------------------------------------------------
+            Five industries. Each entry states the kind of problem the
+            industry faces and the technology that addresses it. No client
+            names, no case studies. Links to /industries are added when
+            that page exists. */}
         <section className={styles.section} aria-labelledby="industries-title">
           <p className={styles.sectionEyebrow}>Industries</p>
           <h2 id="industries-title" className={styles.sectionTitle}>
             Where we work
           </h2>
-          <p className={styles.sectionPlaceholder}>
-            Section content arrives in a later step.
-          </p>
+          <div className={styles.industryGrid}>
+            {industries.map((industry) => (
+              <div key={industry.slug} className={styles.industryBlock}>
+                <h3 className={styles.industryLabel}>{industry.label}</h3>
+                <p className={styles.industryText}>{industry.description}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* --- Insights -------------------------------------------------
