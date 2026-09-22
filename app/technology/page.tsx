@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+﻿import type { Metadata } from "next";
 
+import { CtaSection } from "@/components/sections/cta-section";
+import { FooterLine } from "@/components/sections/footer-line";
+import { PageHeader } from "@/components/sections/page-header";
 import { TechStack } from "@/components/visuals/tech-stack";
-import { company } from "@/content/company";
 import { getTechnologySummary } from "@/content/technology";
 
 import styles from "./page.module.css";
@@ -21,22 +22,18 @@ export default function TechnologyPage() {
 
   return (
     <main id="main" className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <p className={styles.eyebrow}>Technology</p>
-          <h1 className={styles.title}>Chosen for the problem, not the fashion</h1>
-          <p className={styles.lead}>
-            Every layer of a system is a decision. We choose technology by what
-            the problem requires, not by what is new. Here is how we think about
-            the stack, from what the user touches to what runs underneath.
-          </p>
-        </div>
+      <div className={styles.headerWrap}>
+        <PageHeader
+          eyebrow="Technology"
+          title="Chosen for the problem, not the fashion"
+          lead="Every layer of a system is a decision. We choose technology by what the problem requires, not by what is new. Here is how we think about the stack, from what the user touches to what runs underneath."
+        />
         <div className={styles.headerVisual}>
           <TechStack />
         </div>
-      </header>
+      </div>
 
-      <section className={styles.section} aria-labelledby="stack-title">
+      <section className={styles.section} aria-labelledby="stack-title" data-reveal>
         <p className={styles.sectionEyebrow}>The Stack</p>
         <h2 id="stack-title" className={styles.sectionTitle}>
           Five layers, one system
@@ -48,11 +45,7 @@ export default function TechnologyPage() {
 
         <ol className={styles.layerList} data-reveal-stagger>
           {summary.map((category, i) => (
-            <li
-              key={category.key}
-              className={styles.layerItem}
-              data-reveal
-            >
+            <li key={category.key} className={styles.layerItem} data-reveal>
               <div className={styles.layerMeta}>
                 <span className={styles.layerIndex}>
                   {String(i + 1).padStart(2, "0")}
@@ -90,30 +83,16 @@ export default function TechnologyPage() {
         </p>
       </section>
 
-      <section className={styles.cta} aria-labelledby="cta-title" data-reveal>
-        <div className={styles.ctaLayout}>
-          <p className={styles.sectionEyebrow}>Start</p>
-          <h2 id="cta-title" className={styles.ctaHeading}>
-            Have a problem worth engineering?
-          </h2>
-          <p className={styles.ctaBody}>
-            Tell us what you are building. We will tell you whether it fits
-            what we do, and which layers of the stack it involves.
-          </p>
-          <div className={styles.ctaActions}>
-            <Link href="/solutions" className={styles.buttonPrimary}>
-              Explore capabilities
-            </Link>
-            <Link href="/company" className={styles.buttonSecondary}>
-              About Lerriley
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection
+        heading="Have a problem worth engineering?"
+        body="Tell us what you are building. We will tell you whether it fits what we do, and which layers of the stack it involves."
+        primaryLabel="Explore capabilities"
+        primaryHref="/solutions"
+        secondaryLabel="About Lerriley"
+        secondaryHref="/company"
+      />
 
-      <p className={styles.footerLine}>
-        {company.legalName} - {company.primaryMarket}
-      </p>
+      <FooterLine />
     </main>
   );
 }
