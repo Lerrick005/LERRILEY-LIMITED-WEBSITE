@@ -9,6 +9,7 @@ import { getTechnologySummary } from "@/content/technology";
 import { howWeWork } from "@/content/work";
 import { insightCategories, insightsStatus } from "@/content/insights";
 import { trustPrinciples } from "@/content/trust";
+import { closingCta } from "@/content/closing-cta";
 
 import styles from "./page.module.css";
 
@@ -286,16 +287,31 @@ export default function HomePage() {
           </ol>
         </section>
 
-        {/* --- Closing CTA --------------------------------------------- */}
-        {/* TODO: Step 30 - Start a Project closing CTA block. */}
+        {/* --- Closing CTA ----------------------------------------------
+            The primary CTA links to /solutions until /contact exists.
+            When /contact is built, change href to "/contact". */}
         <section className={styles.section} aria-labelledby="cta-title">
-          <p className={styles.sectionEyebrow}>Start</p>
-          <h2 id="cta-title" className={styles.sectionTitle}>
-            Start a project
-          </h2>
-          <p className={styles.sectionPlaceholder}>
-            Section content arrives in a later step.
-          </p>
+          <div className={styles.ctaLayout}>
+            <p className={styles.sectionEyebrow}>{closingCta.eyebrow}</p>
+            <h2 id="cta-title" className={styles.ctaHeading}>
+              {closingCta.heading}
+            </h2>
+            <p className={styles.ctaBody}>{closingCta.body}</p>
+            <div className={styles.heroActions}>
+              <Link
+                href="/solutions"
+                className={`${styles.button} ${styles.buttonPrimary}`}
+              >
+                {closingCta.primaryLabel}
+              </Link>
+              <Link
+                href="/solutions"
+                className={`${styles.button} ${styles.buttonSecondary}`}
+              >
+                {closingCta.secondaryLabel}
+              </Link>
+            </div>
+          </div>
         </section>
       </main>
     </div>
