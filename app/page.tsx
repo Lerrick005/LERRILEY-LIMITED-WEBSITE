@@ -5,6 +5,7 @@ import { company } from "@/content/company";
 import { getSolutions } from "@/content/solutions";
 import { PipelineDiagram } from "@/components/pipeline-diagram";
 import { processSteps } from "@/content/process";
+import { getTechnologySummary } from "@/content/technology";
 
 import styles from "./page.module.css";
 
@@ -170,15 +171,36 @@ export default function HomePage() {
         </section>
 
         {/* --- Technology ----------------------------------------------- */}
-        {/* TODO: Step 25 - Technology summary, links to /technology. */}
         <section className={styles.section} aria-labelledby="technology-title">
           <p className={styles.sectionEyebrow}>Technology</p>
           <h2 id="technology-title" className={styles.sectionTitle}>
             Chosen for the problem, not the fashion
           </h2>
-          <p className={styles.sectionPlaceholder}>
-            Section content arrives in a later step.
+          <p className={styles.sectionLead}>
+            The stack follows the requirement. These are the technologies
+            Lerriley works with, and what each layer is for.
           </p>
+          <div className={styles.techGrid}>
+            {getTechnologySummary().map((category) => (
+              <div key={category.key} className={styles.techBlock}>
+                <h3 className={styles.techLabel}>{category.label}</h3>
+                <p className={styles.techRationale}>{category.rationale}</p>
+                <ul className={styles.techItems}>
+                  {category.items.map((item) => (
+                    <li key={item} className={styles.techItem}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className={styles.capabilitiesFooter}>
+            <Link href="/solutions" className={styles.capabilitiesFooterLink}>
+              See how we choose technology
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </section>
 
         {/* --- Real work ------------------------------------------------ */}

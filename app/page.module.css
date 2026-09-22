@@ -367,6 +367,69 @@
     text-wrap: pretty;
   }
 
+  /* --- Technology section ---------------------------------------------------
+     Five categories in a grid. Each category: label, rationale, list of
+     technologies. No logo wall (spec section 6.7). Text-only.
+     -------------------------------------------------------------------------- */
+
+  .sectionLead {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-body);
+    color: var(--text-secondary);
+    max-width: 60ch;
+    margin: 0 0 var(--s-10) 0;
+    text-wrap: pretty;
+  }
+
+  .techGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--s-8) var(--s-10);
+    border-top: 1px solid var(--border);
+    padding-top: var(--s-8);
+  }
+
+  .techBlock {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+  .techLabel {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    line-height: var(--lh-heading);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .techRationale {
+    font-size: var(--fs-body);
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .techItems {
+    list-style: none;
+    padding: 0;
+    margin: var(--s-2) 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2) var(--s-4);
+  }
+
+  .techItem {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    margin: 0;
+  }
+
   /* --- Responsive ----------------------------------------------------------- */
 
   @media (max-width: 900px) {
