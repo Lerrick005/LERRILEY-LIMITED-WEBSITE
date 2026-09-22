@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { RevealProvider } from "@/components/reveal-provider";
 import { company } from "@/content/company";
 
 import "./globals.css";
@@ -132,6 +134,8 @@ export default function RootLayout({
         </a>
         <SiteHeader />
         {children}
+        <SiteFooter />
+        <RevealProvider />
       </body>
     </html>
   );

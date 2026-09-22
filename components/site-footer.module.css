@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Site footer
+   --------------------------------------------------------------------------
+   Four columns: brand, explore, company, reach us. Collapses to two columns
+   on tablet, one column on mobile. Legal line sits at the bottom under a
+   hairline rule.
+   ========================================================================== */
+
+   .footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-raised);
+    margin-top: var(--s-32);
+  }
+
+  .inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--s-10) var(--s-12);
+    width: 100%;
+    max-width: var(--w-full);
+    margin: 0 auto;
+    padding: var(--s-16) var(--s-6) var(--s-12);
+    align-items: start;
+  }
+
+  /* --- Brand column -------------------------------------------------------- */
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+
+  .logoLink {
+    display: inline-block;
+    align-self: flex-start;
+    transition: opacity var(--t-fast);
+  }
+
+  .logoLink:hover {
+    opacity: 0.85;
+  }
+
+  .logo {
+    width: 180px;
+    height: auto;
+    display: block;
+  }
+
+  .tagline {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 32ch;
+  }
+
+  /* --- Columns ------------------------------------------------------------- */
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+
+  .columnTitle {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+  .link {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--t-fast);
+  }
+
+  .link:hover {
+    color: var(--accent-hover);
+  }
+
+  /* --- Bottom bar ---------------------------------------------------------- */
+
+  .bottomBar {
+    border-top: 1px solid var(--border);
+    width: 100%;
+    max-width: var(--w-full);
+    margin: 0 auto;
+    padding: var(--s-6);
+  }
+
+  .legal {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* --- Responsive ---------------------------------------------------------- */
+
+  @media (max-width: 960px) {
+    .inner {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding: var(--s-12) var(--s-6) var(--s-10);
+    }
+
+    .brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .inner {
+      grid-template-columns: 1fr;
+      gap: var(--s-8);
+    }
+
+    .brand {
+      grid-column: auto;
+    }
+
+    .logo {
+      width: 150px;
+    }
+  }

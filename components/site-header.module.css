@@ -1,9 +1,10 @@
 /* ==========================================================================
    Site header
    --------------------------------------------------------------------------
-   Fixed-height bar with a hairline bottom border. The wordmark uses the
-   display serif; the CTA uses the same button language as the hero.
-   Sticky on scroll so the CTA is always reachable.
+   Tall bar (128px desktop) carrying the Lerriley emblem at a readable size,
+   with a stacked wordmark beside it so the company name is always legible.
+   Navigation links sit to the right of the brand block. The primary CTA is
+   on the far right. Sticky on scroll.
    ========================================================================== */
 
    .header {
@@ -31,55 +32,98 @@
     max-width: var(--w-full);
     margin: 0 auto;
     padding: var(--s-4) var(--s-6);
-    min-height: 68px;
+    min-height: 128px;
   }
 
-  /* --- Wordmark ------------------------------------------------------------
-     Text, not an image. Instrument Serif at weight 400. Tight tracking keeps
-     it feeling like a mark rather than a headline.
-     -------------------------------------------------------------------------- */
+  /* --- Brand block --------------------------------------------------------
+     Emblem + stacked wordmark, grouped on the left.
+     ---------------------------------------------------------------------- */
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+    flex-shrink: 0;
+  }
+
+  .logoLink {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: var(--r-2);
+    transition: opacity var(--t-fast);
+  }
+
+  .logoLink:hover {
+    opacity: 0.88;
+  }
+
+  .logo {
+    display: block;
+    width: 100px;
+    height: auto;
+  }
 
   .wordmark {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .wordmarkPrimary {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1;
     letter-spacing: -0.01em;
     color: var(--text);
-    text-decoration: none;
-    transition: color var(--t-fast);
-    /* Visible focus ring inherits from globals; we only adjust radius. */
-    border-radius: var(--r-1);
   }
 
-  .wordmark:hover {
-    color: var(--accent-hover);
+  .wordmarkSecondary {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
   }
 
-  /* --- Actions -------------------------------------------------------------
-     Right side of the bar. Navigation will join here later.
-     -------------------------------------------------------------------------- */
+  /* --- Navigation and actions --------------------------------------------- */
 
   .actions {
     display: flex;
     align-items: center;
-    gap: var(--s-4);
+    gap: var(--s-6);
   }
 
-  /* --- CTA -----------------------------------------------------------------
-     Matches .buttonPrimary from the hero. When the Button component is
-     extracted in a later step, this rule is replaced by that component and
-     the styles move with it.
-     -------------------------------------------------------------------------- */
+  .navLink {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--text);
+    text-decoration: none;
+    transition: color var(--t-fast);
+    padding: var(--s-2) 0;
+    border-radius: var(--r-1);
+  }
+
+  .navLink:hover {
+    color: var(--accent-hover);
+  }
+
+  /* --- CTA ---------------------------------------------------------------- */
 
   .cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 40px;
-    padding: var(--s-2) var(--s-4);
+    min-height: 44px;
+    padding: var(--s-3) var(--s-5);
     font-family: var(--font-sans);
-    font-size: 0.9375rem;
+    font-size: 1rem;
     font-weight: 500;
     line-height: 1;
     text-decoration: none;
@@ -100,23 +144,55 @@
     color: var(--text-inverse);
   }
 
-  /* --- Mobile --------------------------------------------------------------
-     Keep the bar compact on small screens. The CTA stays; the wordmark
-     scales slightly down.
-     -------------------------------------------------------------------------- */
+  /* --- Responsive --------------------------------------------------------- */
+
+  @media (max-width: 960px) {
+    .inner {
+      min-height: 112px;
+      gap: var(--s-4);
+    }
+
+    .logo {
+      width: 88px;
+    }
+
+    .wordmarkPrimary {
+      font-size: 1.25rem;
+    }
+
+    .actions {
+      gap: var(--s-4);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .navLink {
+      display: none;
+    }
+
+    .wordmarkSecondary {
+      display: none;
+    }
+  }
 
   @media (max-width: 480px) {
     .inner {
       padding: var(--s-3) var(--s-4);
-      min-height: 60px;
+      min-height: 96px;
+      gap: var(--s-3);
     }
 
-    .wordmark {
-      font-size: 1.25rem;
+    .logo {
+      width: 72px;
+    }
+
+    .wordmarkPrimary {
+      font-size: 1.125rem;
     }
 
     .cta {
       font-size: 0.875rem;
       padding: var(--s-2) var(--s-3);
+      min-height: 40px;
     }
   }

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./site-header.module.css";
@@ -5,31 +6,49 @@ import styles from "./site-header.module.css";
 /**
  * Site header.
  *
- * Contains:
- *   - The wordmark (typographic, Instrument Serif) on the left, linking home.
- *   - A "Start a Project" CTA on the right.
- *   - A placeholder for primary navigation, hidden for now, marked clearly.
+ * Contains the Lerriley emblem on the left (transparent PNG), a stacked
+ * wordmark beside it, a small navigation set, and the primary call to
+ * action on the right.
  *
- * The full navigation menu is added in a later step, once the target pages
- * exist. We do not link to routes that do not resolve (addendum rule 7).
+ * The emblem carries the brand mark. The wordmark beside it carries the
+ * name, so the company is identifiable even when the emblem's internal
+ * text is not legible at small sizes.
  *
- * The wordmark is text, not an image. It reads at every size, weighs
- * nothing, stays on-palette, and is selectable and searchable.
+ * Only links to routes that exist are rendered. As more pages ship, they
+ * are added here. No link ever 404s.
  */
 
 export function SiteHeader() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.wordmark} aria-label="Lerriley Limited, home">
-          Lerriley
-        </Link>
+        <div className={styles.brand}>
+          <Link
+            href="/"
+            className={styles.logoLink}
+            aria-label="Lerriley Limited Company, home"
+          >
+            <Image
+              src="/lerriley-logo-transparent.png"
+              alt=""
+              width={638}
+              height={639}
+              priority
+              sizes="(min-width: 961px) 96px, (min-width: 481px) 84px, 68px"
+              className={styles.logo}
+            />
+          </Link>
+          <div className={styles.wordmark}>
+            <span className={styles.wordmarkPrimary}>Lerriley</span>
+            <span className={styles.wordmarkSecondary}>Limited Company</span>
+          </div>
+        </div>
 
-        {/* Primary navigation is added once the target pages exist.
-            Until then, the header intentionally renders only the wordmark
-            and the primary call to action. */}
         <nav className={styles.actions} aria-label="Primary">
-          <Link href="/contact" className={styles.cta}>
+          <Link href="/solutions" className={styles.navLink}>
+            Solutions
+          </Link>
+          <Link href="/solutions" className={styles.cta}>
             Start a Project
           </Link>
         </nav>

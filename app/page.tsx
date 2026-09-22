@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { company } from "@/content/company";
@@ -35,14 +36,14 @@ export default function HomePage() {
         {/* --- Hero ------------------------------------------------------ */}
         <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroContent}>
-            <p className={styles.heroEyebrow}>{company.primaryMarket}</p>
+            <p className={styles.heroEyebrow}>Technology Engineering · Kenya</p>
             <h1 id="hero-title" className={styles.heroTitle}>
               {company.tagline}
             </h1>
             <p className={styles.heroLead}>
               Lerriley designs and builds web platforms, business software, AI
-              solutions, data systems and intelligent digital products for
-              organizations ready to solve meaningful problems with technology.
+              solutions, data systems and intelligent digital products. We
+              engineer technology around real-world organizational problems.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className={`${styles.button} ${styles.buttonPrimary}`}>
@@ -53,13 +54,25 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className={styles.heroVisual}>
-            <PipelineDiagram />
+          <div className={styles.heroImageWrap}>
+            <Image
+              src="/lerriley-building.webp"
+              alt="Lerriley Limited office building at dusk, exterior view of the full facade with warm architectural lighting."
+              width={956}
+              height={1645}
+              priority
+              sizes="(min-width: 960px) 48vw, 100vw"
+              className={styles.heroImage}
+            />
           </div>
         </section>
 
+        <div className={styles.heroPipeline}>
+          <PipelineDiagram />
+        </div>
+
         {/* --- The problem ---------------------------------------------- */}
-        <section className={styles.section} aria-labelledby="problem-title">
+        <section className={styles.section} aria-labelledby="problem-title" data-reveal>
           <p className={styles.sectionEyebrow}>The Problem</p>
           <div className={styles.problemLayout}>
             <div className={styles.problemProse}>
@@ -127,7 +140,7 @@ export default function HomePage() {
         </section>
 
         {/* --- What we build -------------------------------------------- */}
-        <section className={styles.section} aria-labelledby="capabilities-title">
+        <section className={styles.section} aria-labelledby="capabilities-title" data-reveal>
           <p className={styles.sectionEyebrow}>What We Build</p>
           <h2 id="capabilities-title" className={styles.sectionTitle}>
             Six engineering capabilities
@@ -159,7 +172,7 @@ export default function HomePage() {
         </section>
 
         {/* --- Engineering process -------------------------------------- */}
-        <section className={styles.section} aria-labelledby="process-title">
+        <section className={styles.section} aria-labelledby="process-title" data-reveal>
           <p className={styles.sectionEyebrow}>How We Work</p>
           <h2 id="process-title" className={styles.sectionTitle}>
             The engineering process
@@ -176,7 +189,7 @@ export default function HomePage() {
         </section>
 
         {/* --- Technology ----------------------------------------------- */}
-        <section className={styles.section} aria-labelledby="technology-title">
+        <section className={styles.section} aria-labelledby="technology-title" data-reveal>
           <p className={styles.sectionEyebrow}>Technology</p>
           <h2 id="technology-title" className={styles.sectionTitle}>
             Chosen for the problem, not the fashion
@@ -212,7 +225,7 @@ export default function HomePage() {
             Published case studies only. Until real case studies exist,
             this section renders the honest alternative: a statement of
             how Lerriley works, with no fabricated projects. */}
-        <section className={styles.section} aria-labelledby="work-title">
+        <section className={styles.section} aria-labelledby="work-title" data-reveal>
           <p className={styles.sectionEyebrow}>{howWeWork.eyebrow}</p>
           <h2 id="work-title" className={styles.sectionTitle}>
             {howWeWork.heading}
@@ -235,7 +248,7 @@ export default function HomePage() {
             industry faces and the technology that addresses it. No client
             names, no case studies. Links to /industries are added when
             that page exists. */}
-        <section className={styles.section} aria-labelledby="industries-title">
+        <section className={styles.section} aria-labelledby="industries-title" data-reveal>
           <p className={styles.sectionEyebrow}>Industries</p>
           <h2 id="industries-title" className={styles.sectionTitle}>
             Where we work
@@ -254,7 +267,7 @@ export default function HomePage() {
             Article list arrives when the first MDX articles are published.
             Until then, the section states what Insights covers and links
             to the nearest existing page. */}
-        <section className={styles.section} aria-labelledby="insights-title">
+        <section className={styles.section} aria-labelledby="insights-title" data-reveal>
           <p className={styles.sectionEyebrow}>{insightsStatus.eyebrow}</p>
           <h2 id="insights-title" className={styles.sectionTitle}>
             {insightsStatus.heading}
@@ -280,7 +293,7 @@ export default function HomePage() {
             certifications, no statistics, no logos. When verified evidence
             exists, an additional evidence block is added above these
             principles without replacing them. */}
-        <section className={styles.section} aria-labelledby="trust-title">
+        <section className={styles.section} aria-labelledby="trust-title" data-reveal>
           <p className={styles.sectionEyebrow}>Trust</p>
           <h2 id="trust-title" className={styles.sectionTitle}>
             How we work with you
@@ -299,7 +312,7 @@ export default function HomePage() {
         {/* --- Closing CTA ----------------------------------------------
             The primary CTA links to /solutions until /contact exists.
             When /contact is built, change href to "/contact". */}
-        <section className={styles.section} aria-labelledby="cta-title">
+        <section className={styles.section} aria-labelledby="cta-title" data-reveal>
           <div className={styles.ctaLayout}>
             <p className={styles.sectionEyebrow}>{closingCta.eyebrow}</p>
             <h2 id="cta-title" className={styles.ctaHeading}>
