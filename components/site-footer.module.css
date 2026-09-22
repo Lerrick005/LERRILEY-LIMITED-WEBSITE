@@ -140,3 +140,26 @@
       width: 150px;
     }
   }
+
+/* --- Legal links --------------------------------------------------------- */
+
+.legalLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--s-6);
+}
+
+.legalLink {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.legalLink:hover {
+  color: var(--accent-hover);
+}

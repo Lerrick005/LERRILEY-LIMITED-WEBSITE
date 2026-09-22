@@ -1,0 +1,49 @@
+﻿/* ==========================================================================
+   Table of contents
+   --------------------------------------------------------------------------
+   Small inline list. Muted, mono labels, hairline separator. Sits on the
+   right of a page on wide screens, above the content on narrow screens.
+   ========================================================================== */
+
+.toc {
+  padding: var(--s-6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  background: var(--bg-raised);
+}
+
+.tocTitle {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s-4) 0;
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.tocItem {
+  margin: 0;
+}
+
+.tocLink {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.tocLink:hover {
+  color: var(--accent-hover);
+}

@@ -60,13 +60,18 @@ export function SiteFooter() {
           <h2 className={styles.columnTitle}>Company</h2>
           <ul className={styles.list}>
             <li>
-              <Link href="/solutions" className={styles.link}>
+              <Link href="/company" className={styles.link}>
                 About
               </Link>
             </li>
             <li>
-              <Link href="/solutions" className={styles.link}>
+              <Link href="/contact" className={styles.link}>
                 Contact
+              </Link>
+            </li>
+            <li>
+              <Link href="/careers" className={styles.link}>
+                Careers
               </Link>
             </li>
           </ul>
@@ -100,6 +105,18 @@ export function SiteFooter() {
         <p className={styles.legal}>
           &copy; {year} {company.legalName}. {company.primaryMarket}.
         </p>
+        <ul className={styles.legalLinks}>
+          <li>
+            <Link href="/privacy" className={styles.legalLink}>
+              Privacy
+            </Link>
+          </li>
+          <li>
+            <Link href="/terms" className={styles.legalLink}>
+              Terms
+            </Link>
+          </li>
+        </ul>
       </div>
     </footer>
   );
