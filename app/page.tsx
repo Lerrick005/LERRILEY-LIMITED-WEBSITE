@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Button } from "@/components/design-system/button";
+
 import { company } from "@/content/company";
 import { getSolutions } from "@/content/solutions";
+import { CtaSection } from "@/components/sections/cta-section";
 import { PipelineDiagram } from "@/components/pipeline-diagram";
 import { processSteps } from "@/content/process";
 import { getTechnologySummary } from "@/content/technology";
@@ -46,12 +49,12 @@ export default function HomePage() {
               engineer technology around real-world organizational problems.
             </p>
             <div className={styles.heroActions}>
-              <Link href="/contact" className={`${styles.button} ${styles.buttonPrimary}`}>
+              <Button href="/contact" variant="primary">
                 Start a Project
-              </Link>
-              <Link href="/solutions" className={`${styles.button} ${styles.buttonSecondary}`}>
+              </Button>
+              <Button href="/solutions" variant="secondary">
                 Explore Capabilities
-              </Link>
+              </Button>
             </div>
           </div>
           <div className={styles.heroImageWrap}>
@@ -309,32 +312,17 @@ export default function HomePage() {
           </ol>
         </section>
 
-        {/* --- Closing CTA ----------------------------------------------
-            The primary CTA links to /solutions until /contact exists.
-            When /contact is built, change href to "/contact". */}
-        <section className={styles.section} aria-labelledby="cta-title" data-reveal>
-          <div className={styles.ctaLayout}>
-            <p className={styles.sectionEyebrow}>{closingCta.eyebrow}</p>
-            <h2 id="cta-title" className={styles.ctaHeading}>
-              {closingCta.heading}
-            </h2>
-            <p className={styles.ctaBody}>{closingCta.body}</p>
-            <div className={styles.heroActions}>
-              <Link
-                href="/solutions"
-                className={`${styles.button} ${styles.buttonPrimary}`}
-              >
-                {closingCta.primaryLabel}
-              </Link>
-              <Link
-                href="/solutions"
-                className={`${styles.button} ${styles.buttonSecondary}`}
-              >
-                {closingCta.secondaryLabel}
-              </Link>
-            </div>
-          </div>
-        </section>
+        <div className={styles.ctaWrap}>
+          <CtaSection
+            eyebrow={closingCta.eyebrow}
+            heading={closingCta.heading}
+            body={closingCta.body}
+            primaryLabel={closingCta.primaryLabel}
+            primaryHref="/contact"
+            secondaryLabel={closingCta.secondaryLabel}
+            secondaryHref="/solutions"
+          />
+        </div>
       </main>
     </div>
   );

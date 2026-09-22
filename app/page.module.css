@@ -128,56 +128,6 @@
     align-items: center;
   }
 
-  /* --- Buttons --------------------------------------------------------------
-     Two styles only: primary (gold) and secondary (outlined). Both are anchor
-     elements here; the Button component arrives in a later step and shares
-     these visuals.
-     -------------------------------------------------------------------------- */
-
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--s-2);
-    min-height: 48px;
-    padding: var(--s-3) var(--s-6);
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1;
-    text-decoration: none;
-    border-radius: var(--r-2);
-    border: 1px solid transparent;
-    transition:
-      background-color var(--t-fast),
-      color var(--t-fast),
-      border-color var(--t-fast);
-    white-space: nowrap;
-  }
-
-  .buttonPrimary {
-    background: var(--accent);
-    color: var(--text-inverse);
-    border-color: var(--accent);
-  }
-
-  .buttonPrimary:hover {
-    background: var(--accent-hover);
-    border-color: var(--accent-hover);
-    color: var(--text-inverse);
-  }
-
-  .buttonSecondary {
-    background: transparent;
-    color: var(--text);
-    border-color: var(--border);
-  }
-
-  .buttonSecondary:hover {
-    color: var(--accent-hover);
-    border-color: var(--accent);
-  }
-
   /* --- Section skeleton -----------------------------------------------------
      The remaining homepage sections are stubbed with correct headings and
      spacing. Each will be replaced by a real component in a later step.
@@ -699,3 +649,13 @@
       padding: var(--s-20) 0 var(--s-16);
     }
   }
+
+/* --- Closing CTA wrapper --------------------------------------------------
+   The CtaSection component provides its own padding and border. This
+   wrapper applies the top margin so the CTA sits below the Trust section
+   with the same rhythm as the other sections.
+   -------------------------------------------------------------------------- */
+
+.ctaWrap {
+  margin-top: var(--s-24);
+}
