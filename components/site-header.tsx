@@ -145,7 +145,7 @@ export function SiteHeader() {
             })}
           </ul>
 
-          <Link href="/solutions" className={styles.cta}>
+          <Link href="/contact" className={styles.cta}>
             Start a Project
           </Link>
 
@@ -209,7 +209,7 @@ export function SiteHeader() {
             })}
           </ul>
           <div className={styles.drawerCta}>
-            <Link href="/solutions" className={styles.drawerCtaLink}>
+            <Link href="/contact" className={styles.drawerCtaLink}>
               Start a Project
             </Link>
           </div>
