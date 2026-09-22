@@ -315,6 +315,58 @@
     color: var(--accent-hover);
   }
 
+  /* --- How We Work section --------------------------------------------------
+     Seven-step process. Each step is a row with a mono number, a serif title,
+     and a short description. Left-aligned vertical list, not a horizontal
+     stepper. The horizontal stepper is used on the /technology page.
+     -------------------------------------------------------------------------- */
+
+  .processList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .processStep {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 12rem) minmax(0, 1fr);
+    gap: var(--s-4) var(--s-8);
+    align-items: baseline;
+    padding: var(--s-6) 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .processNumber {
+    font-family: var(--font-mono);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    line-height: 1.4;
+  }
+
+  .processStepTitle {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    line-height: var(--lh-heading);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .processStepText {
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
   /* --- Responsive ----------------------------------------------------------- */
 
   @media (max-width: 900px) {
@@ -331,6 +383,18 @@
     }
 
     .capabilitySummary {
+      grid-column: 2;
+      margin-top: var(--s-2);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .processStep {
+      grid-template-columns: 3rem 1fr;
+      gap: var(--s-3) var(--s-4);
+    }
+
+    .processStepText {
       grid-column: 2;
       margin-top: var(--s-2);
     }

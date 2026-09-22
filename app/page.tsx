@@ -4,6 +4,7 @@ import Link from "next/link";
 import { company } from "@/content/company";
 import { getSolutions } from "@/content/solutions";
 import { PipelineDiagram } from "@/components/pipeline-diagram";
+import { processSteps } from "@/content/process";
 
 import styles from "./page.module.css";
 
@@ -152,15 +153,20 @@ export default function HomePage() {
         </section>
 
         {/* --- Engineering process -------------------------------------- */}
-        {/* TODO: Step 24 - ProcessStepper, seven steps from spec section 6.6. */}
         <section className={styles.section} aria-labelledby="process-title">
           <p className={styles.sectionEyebrow}>How We Work</p>
           <h2 id="process-title" className={styles.sectionTitle}>
             The engineering process
           </h2>
-          <p className={styles.sectionPlaceholder}>
-            Section content arrives in a later step.
-          </p>
+          <ol className={styles.processList}>
+            {processSteps.map((step) => (
+              <li key={step.slug} className={styles.processStep}>
+                <span className={styles.processNumber}>{step.number}</span>
+                <h3 className={styles.processStepTitle}>{step.title}</h3>
+                <p className={styles.processStepText}>{step.description}</p>
+              </li>
+            ))}
+          </ol>
         </section>
 
         {/* --- Technology ----------------------------------------------- */}
