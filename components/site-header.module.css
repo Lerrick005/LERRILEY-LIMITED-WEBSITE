@@ -235,3 +235,115 @@
       min-height: 40px;
     }
   }
+
+/* --- Mobile menu button ------------------------------------------------ */
+
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.menuButton:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent);
+}
+
+.menuButton svg {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  fill: none;
+}
+
+/* --- Mobile drawer ------------------------------------------------------ */
+
+.drawer {
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+  padding: var(--s-6);
+  max-height: calc(100dvh - 96px);
+  overflow-y: auto;
+}
+
+.drawerList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--s-6) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.drawerLink {
+  display: block;
+  padding: var(--s-4) 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color var(--t-fast);
+}
+
+.drawerLink:hover {
+  color: var(--accent-hover);
+}
+
+.drawerLinkActive {
+  color: var(--accent);
+}
+
+.drawerCta {
+  padding-top: var(--s-2);
+}
+
+.drawerCtaLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-6);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  background: var(--accent);
+  color: var(--text-inverse);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-2);
+  transition: background-color var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
+
+.drawerCtaLink:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--text-inverse);
+}
+
+@media (max-width: 960px) {
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .navList {
+    display: none;
+  }
+
+  .cta {
+    display: none;
+  }
+}
