@@ -6,9 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "new:insight": "node scripts/new-content.mjs insight",
+    "new:news": "node scripts/new-content.mjs news",
+    "new:career": "node scripts/new-content.mjs career",
+    "new:culture": "node scripts/new-content.mjs culture"
   },
   "dependencies": {
+    "gray-matter": "4.0.3",
     "next": "15.5.25",
     "react": "19.1.0",
     "react-dom": "19.1.0",
