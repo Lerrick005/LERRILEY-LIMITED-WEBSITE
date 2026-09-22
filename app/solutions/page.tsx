@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CapabilityRing } from "@/components/visuals/capability-ring";
 import { getSolutions } from "@/content/solutions";
 
 import styles from "./page.module.css";
@@ -32,12 +33,17 @@ export default function SolutionsPage() {
   return (
     <main id="main" className={styles.page}>
       <header className={styles.header}>
-        <p className={styles.eyebrow}>Capabilities</p>
-        <h1 className={styles.title}>What we engineer</h1>
-        <p className={styles.lead}>
-          Six disciplines, one approach. Each starts with understanding the
-          problem and the workflow, then choosing the technology that fits.
-        </p>
+        <div className={styles.headerContent}>
+          <p className={styles.eyebrow}>Capabilities</p>
+          <h1 className={styles.title}>What we engineer</h1>
+          <p className={styles.lead}>
+            Six disciplines, one approach. Each starts with understanding the
+            problem and the workflow, then choosing the technology that fits.
+          </p>
+        </div>
+        <div className={styles.headerVisual}>
+          <CapabilityRing />
+        </div>
       </header>
 
       <ul className={styles.list}>

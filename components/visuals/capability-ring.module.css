@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Capability ring
+   --------------------------------------------------------------------------
+   Six arcs in a circle, one per capability. Gold stroke, muted label.
+   A single dot travels the circumference on a slow CSS keyframe,
+   disabled under prefers-reduced-motion.
+   ========================================================================== */
+
+   .wrapper {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .arc {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.25;
+    stroke-linecap: round;
+    opacity: 0.55;
+    transition:
+      opacity var(--t-fast),
+      stroke-width var(--t-fast);
+  }
+
+  .arc:hover {
+    opacity: 1;
+    stroke-width: 2;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    fill: var(--text-secondary);
+  }
+
+  .center {
+    fill: var(--accent);
+  }
+
+  .dot {
+    fill: var(--accent);
+    transform-origin: 120px 120px;
+    animation: orbit 24s linear infinite;
+    filter: drop-shadow(
+      0 0 3px color-mix(in srgb, var(--accent) 60%, transparent)
+    );
+  }
+
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot {
+      animation: none;
+    }
+  }
