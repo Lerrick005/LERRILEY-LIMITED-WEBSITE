@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Breadcrumbs
+   --------------------------------------------------------------------------
+   Small mono trail at the top of interior pages. Muted until hovered.
+   ========================================================================== */
+
+   .nav {
+    width: 100%;
+    max-width: var(--w-full);
+    margin: 0 auto;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s-2);
+  }
+
+  .item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--s-2);
+    margin: 0;
+  }
+
+  .link {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--t-fast);
+  }
+
+  .link:hover {
+    color: var(--accent-hover);
+  }
+
+  .current {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .separator {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    color: var(--text-secondary);
+    opacity: 0.6;
+  }
