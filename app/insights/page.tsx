@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { EditorialMark } from "@/components/visuals/editorial-mark";
 import { loadCollection } from "@/lib/content/loader";
 import { InsightFrontmatterSchema } from "@/lib/content/schemas";
 
@@ -21,12 +22,17 @@ export default function InsightsIndexPage() {
   return (
     <main id="main" className={styles.page}>
       <header className={styles.header}>
-        <p className={styles.eyebrow}>Insights</p>
-        <h1 className={styles.title}>Notes on engineering</h1>
-        <p className={styles.lead}>
-          Writing on the topics we work with: applied AI, data systems,
-          business technology and the engineering practice behind them.
-        </p>
+        <div className={styles.headerContent}>
+          <p className={styles.eyebrow}>Insights</p>
+          <h1 className={styles.title}>Notes on engineering</h1>
+          <p className={styles.lead}>
+            Writing on the topics we work with: applied AI, data systems,
+            business technology and the engineering practice behind them.
+          </p>
+        </div>
+        <div className={styles.headerVisual}>
+          <EditorialMark />
+        </div>
       </header>
 
       {entries.length === 0 ? (

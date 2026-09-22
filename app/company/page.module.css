@@ -14,9 +14,29 @@
   }
 
   .header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-12);
     padding: var(--s-24) 0 var(--s-16);
-    max-width: var(--w-content);
     border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+
+  @media (min-width: 720px) {
+    .header {
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: var(--s-16);
+    }
+  }
+
+  .headerContent {
+    max-width: var(--w-content);
+  }
+
+  .headerVisual {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
   }
 
   .eyebrow {

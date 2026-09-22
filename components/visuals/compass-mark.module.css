@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Compass mark
+   --------------------------------------------------------------------------
+   Minimal compass rose. Two concentric rings, four cardinal ticks and
+   labels, a slow rotating needle, and a center hub. Everything is drawn
+   in gold and neutral tones to match the site's palette.
+   ========================================================================== */
+
+   .wrapper {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .outerRing {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 1;
+  }
+
+  .innerRing {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 1;
+    stroke-dasharray: 2 4;
+    opacity: 0.7;
+  }
+
+  .tick {
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.8;
+  }
+
+  .cardinal {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    fill: var(--text-secondary);
+  }
+
+  .needle {
+    transform-origin: 120px 120px;
+    animation: rotate 40s linear infinite;
+  }
+
+  .needleNorth {
+    fill: var(--accent);
+  }
+
+  .needleSouth {
+    fill: var(--text-secondary);
+    opacity: 0.5;
+  }
+
+  .hub {
+    fill: var(--bg);
+    stroke: var(--accent);
+    stroke-width: 1.5;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .needle {
+      animation: none;
+    }
+  }

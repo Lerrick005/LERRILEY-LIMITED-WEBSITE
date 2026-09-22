@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CompassMark } from "@/components/visuals/compass-mark";
 import { company } from "@/content/company";
 import { companyPage } from "@/content/company-page";
 
@@ -19,9 +20,14 @@ export default function CompanyPageRoute() {
   return (
     <main id="main" className={styles.page}>
       <header className={styles.header}>
-        <p className={styles.eyebrow}>{companyPage.eyebrow}</p>
-        <h1 className={styles.title}>{companyPage.heading}</h1>
-        <p className={styles.lead}>{companyPage.lead}</p>
+        <div className={styles.headerContent}>
+          <p className={styles.eyebrow}>{companyPage.eyebrow}</p>
+          <h1 className={styles.title}>{companyPage.heading}</h1>
+          <p className={styles.lead}>{companyPage.lead}</p>
+        </div>
+        <div className={styles.headerVisual}>
+          <CompassMark />
+        </div>
       </header>
 
       <section className={styles.section} aria-labelledby="beliefs-title" data-reveal>

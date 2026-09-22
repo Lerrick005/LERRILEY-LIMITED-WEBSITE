@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Editorial mark
+   --------------------------------------------------------------------------
+   A large quotation mark above two horizontal rules. The quotation mark is
+   a solid gold shape. The rules are hairlines. A single dot travels along
+   the lower rule on a slow CSS keyframe, disabled under reduced motion.
+   ========================================================================== */
+
+   .wrapper {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .quote {
+    transform-origin: 120px 64px;
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+  .quoteShape {
+    fill: var(--accent);
+    opacity: 0.9;
+  }
+
+  .ruleUpper {
+    stroke: var(--border);
+    stroke-width: 1;
+    stroke-linecap: round;
+  }
+
+  .ruleLower {
+    stroke: var(--accent);
+    stroke-width: 1;
+    stroke-linecap: round;
+    opacity: 0.7;
+  }
+
+  .dot {
+    fill: var(--accent);
+    animation: travel 6s ease-in-out infinite;
+    filter: drop-shadow(
+      0 0 3px color-mix(in srgb, var(--accent) 60%, transparent)
+    );
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes travel {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(160px);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .quote {
+      animation: none;
+    }
+    .dot {
+      animation: none;
+      opacity: 0.7;
+    }
+  }
