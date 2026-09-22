@@ -7,6 +7,7 @@ import { PipelineDiagram } from "@/components/pipeline-diagram";
 import { processSteps } from "@/content/process";
 import { getTechnologySummary } from "@/content/technology";
 import { howWeWork } from "@/content/work";
+import { insightCategories, insightsStatus } from "@/content/insights";
 
 import styles from "./page.module.css";
 
@@ -238,16 +239,29 @@ export default function HomePage() {
           </p>
         </section>
 
-        {/* --- Insights ------------------------------------------------ */}
-        {/* TODO: Step 28 - Latest published articles. */}
+        {/* --- Insights -------------------------------------------------
+            Article list arrives when the first MDX articles are published.
+            Until then, the section states what Insights covers and links
+            to the nearest existing page. */}
         <section className={styles.section} aria-labelledby="insights-title">
-          <p className={styles.sectionEyebrow}>Insights</p>
+          <p className={styles.sectionEyebrow}>{insightsStatus.eyebrow}</p>
           <h2 id="insights-title" className={styles.sectionTitle}>
-            Notes on engineering
+            {insightsStatus.heading}
           </h2>
-          <p className={styles.sectionPlaceholder}>
-            Section content arrives in a later step.
-          </p>
+          <p className={styles.sectionLead}>{insightsStatus.statement}</p>
+          <ul className={styles.insightCategories}>
+            {insightCategories.map((category) => (
+              <li key={category.slug} className={styles.insightCategory}>
+                {category.label}
+              </li>
+            ))}
+          </ul>
+          <div className={styles.capabilitiesFooter}>
+            <Link href="/solutions" className={styles.capabilitiesFooterLink}>
+              Explore our capabilities
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </section>
 
         {/* --- Trust ---------------------------------------------------- */}

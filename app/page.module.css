@@ -452,6 +452,46 @@
     margin-bottom: 0;
   }
 
+  /* --- Insights section -----------------------------------------------------
+     Category chips are text-only, no boxes, no fills. Mono labels in a
+     horizontal flow, using the accent as a thin underline rather than a
+     background. This keeps the section on-brand with the rest of the page.
+     -------------------------------------------------------------------------- */
+
+  .insightCategories {
+    list-style: none;
+    padding: 0;
+    margin: var(--s-10) 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3) var(--s-8);
+    border-top: 1px solid var(--border);
+    padding-top: var(--s-6);
+  }
+
+  .insightCategory {
+    font-family: var(--font-mono);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin: 0;
+    position: relative;
+  }
+
+  .insightCategory::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: var(--s-2);
+    vertical-align: middle;
+    transform: translateY(-1px);
+  }
+
   /* --- Responsive ----------------------------------------------------------- */
 
   @media (max-width: 900px) {
