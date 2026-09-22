@@ -1,0 +1,51 @@
+﻿/* ==========================================================================
+   SectionHeader
+   --------------------------------------------------------------------------
+   Eyebrow, heading, and optional lead paragraph. The heading has two
+   sizes: titleLarge for h1 (page header), title for h2 (section heading).
+   ========================================================================== */
+
+.header {
+  max-width: var(--w-content);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s-4) 0;
+}
+
+.titleLarge {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 var(--s-6) 0;
+  text-wrap: balance;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 var(--s-6) 0;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 62ch;
+  text-wrap: pretty;
+}

@@ -1,0 +1,15 @@
+﻿/* ==========================================================================
+   Eyebrow
+   --------------------------------------------------------------------------
+   Small mono uppercase label, gold, used above section headings.
+   ========================================================================== */
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s-4) 0;
+}

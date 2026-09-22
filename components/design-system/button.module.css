@@ -1,0 +1,81 @@
+﻿/* ==========================================================================
+   Button
+   --------------------------------------------------------------------------
+   One style system for every button and button-like link on the site.
+   Three variants: primary, secondary, text. Two sizes: default and small.
+   ========================================================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: 48px;
+  padding: var(--s-3) var(--s-6);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: var(--r-2);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--t-fast),
+    color var(--t-fast),
+    border-color var(--t-fast);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* --- Sizes -------------------------------------------------------------- */
+
+.small {
+  min-height: 40px;
+  padding: var(--s-2) var(--s-4);
+  font-size: 0.9375rem;
+}
+
+/* --- Primary ------------------------------------------------------------ */
+
+.primary {
+  background: var(--accent);
+  color: var(--text-inverse);
+  border-color: var(--accent);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--text-inverse);
+}
+
+/* --- Secondary ---------------------------------------------------------- */
+
+.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.secondary:hover:not(:disabled) {
+  color: var(--accent-hover);
+  border-color: var(--accent);
+}
+
+/* --- Text --------------------------------------------------------------- */
+
+.text {
+  padding: var(--s-3) var(--s-2);
+  color: var(--accent);
+  background: transparent;
+  border-color: transparent;
+}
+
+.text:hover:not(:disabled) {
+  color: var(--accent-hover);
+}
