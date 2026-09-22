@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+﻿import type { Metadata } from "next";
 
+import { CtaSection } from "@/components/sections/cta-section";
+import { PageHeader } from "@/components/sections/page-header";
 import { HumanScale } from "@/components/visuals/human-scale";
 import { careersPage } from "@/content/careers-culture";
 import { loadCollection } from "@/lib/content/loader";
@@ -25,16 +26,16 @@ export default function CareersPage() {
 
   return (
     <main id="main" className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <p className={styles.eyebrow}>{careersPage.eyebrow}</p>
-          <h1 className={styles.title}>{careersPage.heading}</h1>
-          <p className={styles.lead}>{careersPage.lead}</p>
-        </div>
+      <div className={styles.headerWrap}>
+        <PageHeader
+          eyebrow={careersPage.eyebrow}
+          title={careersPage.heading}
+          lead={careersPage.lead}
+        />
         <div className={styles.headerVisual}>
           <HumanScale />
         </div>
-      </header>
+      </div>
 
       <section className={styles.section} aria-labelledby="working-title">
         <p className={styles.sectionEyebrow}>The Work</p>
@@ -50,7 +51,11 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="looking-title" data-reveal>
+      <section
+        className={styles.section}
+        aria-labelledby="looking-title"
+        data-reveal
+      >
         <p className={styles.sectionEyebrow}>What We Look For</p>
         <h2 id="looking-title" className={styles.sectionTitle}>
           {careersPage.lookingHeading}
@@ -67,7 +72,11 @@ export default function CareersPage() {
         </ul>
       </section>
 
-      <section className={styles.section} aria-labelledby="hiring-title" data-reveal>
+      <section
+        className={styles.section}
+        aria-labelledby="hiring-title"
+        data-reveal
+      >
         <p className={styles.sectionEyebrow}>Process</p>
         <h2 id="hiring-title" className={styles.sectionTitle}>
           {careersPage.hiringHeading}
@@ -84,7 +93,11 @@ export default function CareersPage() {
         </ol>
       </section>
 
-      <section className={styles.section} aria-labelledby="open-title" data-reveal>
+      <section
+        className={styles.section}
+        aria-labelledby="open-title"
+        data-reveal
+      >
         <p className={styles.sectionEyebrow}>Open Roles</p>
         <h2 id="open-title" className={styles.sectionTitle}>
           {careersPage.openHeading}
@@ -96,49 +109,31 @@ export default function CareersPage() {
           <ul className={styles.roleList}>
             {openRoles.map((role) => (
               <li key={role.frontmatter.slug} className={styles.roleItem}>
-                <Link
-                  href={`/careers/${role.frontmatter.slug}`}
-                  className={styles.roleLink}
-                >
-                  <h3 className={styles.roleTitle}>{role.frontmatter.title}</h3>
-                  {role.frontmatter.location ? (
-                    <p className={styles.roleMeta}>
-                      {role.frontmatter.location}
-                      {role.frontmatter.employmentType
-                        ? ` · ${role.frontmatter.employmentType}`
-                        : ""}
-                    </p>
-                  ) : null}
-                  <p className={styles.roleSummary}>
-                    {role.frontmatter.summary}
+                <h3 className={styles.roleTitle}>{role.frontmatter.title}</h3>
+                {role.frontmatter.location ? (
+                  <p className={styles.roleMeta}>
+                    {role.frontmatter.location}
+                    {role.frontmatter.employmentType
+                      ? ` - ${role.frontmatter.employmentType}`
+                      : ""}
                   </p>
-                </Link>
+                ) : null}
+                <p className={styles.roleSummary}>{role.frontmatter.summary}</p>
               </li>
             ))}
           </ul>
         )}
       </section>
 
-      <section className={styles.cta} aria-labelledby="cta-title" data-reveal>
-        <div className={styles.ctaLayout}>
-          <p className={styles.sectionEyebrow}>Get in touch</p>
-          <h2 id="cta-title" className={styles.ctaHeading}>
-            Interested in working with us?
-          </h2>
-          <p className={styles.ctaBody}>
-            Send a note and a link to something you have built. We read
-            everything and we reply either way.
-          </p>
-          <div className={styles.ctaActions}>
-            <Link href="/company" className={styles.buttonPrimary}>
-              About Lerriley
-            </Link>
-            <Link href="/solutions" className={styles.buttonSecondary}>
-              Explore capabilities
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection
+        eyebrow="Get in touch"
+        heading="Interested in working with us?"
+        body="Send a note and a link to something you have built. We read everything and we reply either way."
+        primaryLabel="About Lerriley"
+        primaryHref="/company"
+        secondaryLabel="Explore capabilities"
+        secondaryHref="/solutions"
+      />
     </main>
   );
 }

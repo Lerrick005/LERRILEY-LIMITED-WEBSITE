@@ -1,302 +1,180 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Careers page
+   --------------------------------------------------------------------------
+   Page-scoped styles only. Shared patterns come from the design system.
    ========================================================================== */
 
-   .page {
-    width: 100%;
-    max-width: var(--w-full);
-    margin: 0 auto;
-    padding: 0 var(--s-6) var(--s-24);
+.page {
+  width: 100%;
+  max-width: var(--w-full);
+  margin: 0 auto;
+  padding: 0 var(--s-6) var(--s-24);
+}
+
+/* --- Header with visual ------------------------------------------------- */
+
+.headerWrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-12);
+  align-items: center;
+}
+
+@media (min-width: 720px) {
+  .headerWrap {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: var(--s-16);
   }
+}
 
-  .header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-12);
-    padding: var(--s-24) 0 var(--s-16);
-    border-bottom: 1px solid var(--border);
-    align-items: center;
-  }
+.headerVisual {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
 
-  @media (min-width: 720px) {
-    .header {
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: var(--s-16);
-    }
-  }
+/* --- Sections ----------------------------------------------------------- */
 
-  .headerContent {
-    max-width: var(--w-content);
-  }
+.section {
+  padding: var(--s-24) 0;
+  border-top: 1px solid var(--border);
+}
 
-  .headerVisual {
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
-  }
+.sectionEyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s-4) 0;
+}
 
-  .eyebrow,
-  .sectionEyebrow {
-    font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 var(--s-4) 0;
-  }
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 var(--s-8) 0;
+  text-wrap: balance;
+}
 
-  .title {
-    font-family: var(--font-display);
-    font-size: var(--fs-h1);
-    font-weight: 400;
-    line-height: var(--lh-tight);
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin: 0 0 var(--s-6) 0;
-    text-wrap: balance;
-  }
+.prose {
+  max-width: 62ch;
+}
 
-  .lead {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0;
-    max-width: 62ch;
-    text-wrap: pretty;
-  }
+.paragraph {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0 0 var(--s-6) 0;
+  text-wrap: pretty;
+}
 
-  /* --- Sections ---------------------------------------------------------- */
+.paragraph:last-child {
+  margin-bottom: 0;
+}
 
+/* --- Looking and hiring lists ------------------------------------------- */
+
+.lookingList,
+.hiringList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.lookingItem,
+.hiringItem {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: var(--s-4);
+  padding: var(--s-6) 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+
+.lookingIndex,
+.hiringIndex {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  line-height: 1.4;
+}
+
+.lookingText,
+.hiringText {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text);
+  margin: 0;
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+/* --- Open roles --------------------------------------------------------- */
+
+.emptyState {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 62ch;
+  text-wrap: pretty;
+  font-style: italic;
+}
+
+.roleList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.roleItem {
+  padding: var(--s-6) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.roleTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 var(--s-2) 0;
+}
+
+.roleMeta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s-3) 0;
+}
+
+.roleSummary {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+/* --- Responsive --------------------------------------------------------- */
+
+@media (max-width: 640px) {
   .section {
-    padding: var(--s-24) 0;
-    border-top: 1px solid var(--border);
+    padding: var(--s-16) 0;
   }
-
-  .sectionTitle {
-    font-family: var(--font-display);
-    font-size: var(--fs-h2);
-    font-weight: 400;
-    line-height: var(--lh-heading);
-    letter-spacing: -0.01em;
-    color: var(--text);
-    margin: 0 0 var(--s-8) 0;
-    text-wrap: balance;
-  }
-
-  .prose {
-    max-width: 62ch;
-  }
-
-  .paragraph {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0 0 var(--s-6) 0;
-    text-wrap: pretty;
-  }
-
-  .paragraph:last-child {
-    margin-bottom: 0;
-  }
-
-  /* --- Looking list ------------------------------------------------------ */
-
-  .lookingList,
-  .hiringList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .lookingItem,
-  .hiringItem {
-    display: grid;
-    grid-template-columns: 3.5rem 1fr;
-    gap: var(--s-4);
-    padding: var(--s-6) 0;
-    border-bottom: 1px solid var(--border);
-    align-items: baseline;
-  }
-
-  .lookingIndex,
-  .hiringIndex {
-    font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    line-height: 1.4;
-  }
-
-  .lookingText,
-  .hiringText {
-    font-size: var(--fs-body);
-    line-height: var(--lh-body);
-    color: var(--text);
-    margin: 0;
-    max-width: 60ch;
-    text-wrap: pretty;
-  }
-
-  /* --- Open roles -------------------------------------------------------- */
-
-  .emptyState {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0;
-    max-width: 62ch;
-    text-wrap: pretty;
-    font-style: italic;
-  }
-
-  .roleList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .roleItem {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .roleLink {
-    display: block;
-    padding: var(--s-8) 0;
-    text-decoration: none;
-    transition: background-color var(--t-fast);
-  }
-
-  .roleLink:hover {
-    background-color: color-mix(in srgb, var(--accent) 4%, transparent);
-  }
-
-  .roleTitle {
-    font-family: var(--font-display);
-    font-size: var(--fs-h3);
-    font-weight: 400;
-    line-height: var(--lh-heading);
-    letter-spacing: -0.01em;
-    color: var(--text);
-    margin: 0 0 var(--s-2) 0;
-    transition: color var(--t-fast);
-  }
-
-  .roleLink:hover .roleTitle {
-    color: var(--accent-hover);
-  }
-
-  .roleMeta {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 var(--s-3) 0;
-  }
-
-  .roleSummary {
-    font-size: var(--fs-body);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0;
-    max-width: 60ch;
-    text-wrap: pretty;
-  }
-
-  /* --- Closing CTA ------------------------------------------------------- */
-
-  .cta {
-    padding: var(--s-24) 0 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .ctaLayout {
-    max-width: var(--w-content);
-  }
-
-  .ctaHeading {
-    font-family: var(--font-display);
-    font-size: var(--fs-h1);
-    font-weight: 400;
-    line-height: var(--lh-tight);
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin: 0 0 var(--s-6) 0;
-    text-wrap: balance;
-  }
-
-  .ctaBody {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0 0 var(--s-10) 0;
-    max-width: 56ch;
-    text-wrap: pretty;
-  }
-
-  .ctaActions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s-4);
-    align-items: center;
-  }
-
-  .buttonPrimary,
-  .buttonSecondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: var(--s-3) var(--s-6);
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1;
-    text-decoration: none;
-    border-radius: var(--r-2);
-    border: 1px solid transparent;
-    transition:
-      background-color var(--t-fast),
-      color var(--t-fast),
-      border-color var(--t-fast);
-    white-space: nowrap;
-  }
-
-  .buttonPrimary {
-    background: var(--accent);
-    color: var(--text-inverse);
-    border-color: var(--accent);
-  }
-
-  .buttonPrimary:hover {
-    background: var(--accent-hover);
-    border-color: var(--accent-hover);
-    color: var(--text-inverse);
-  }
-
-  .buttonSecondary {
-    background: transparent;
-    color: var(--text);
-    border-color: var(--border);
-  }
-
-  .buttonSecondary:hover {
-    color: var(--accent-hover);
-    border-color: var(--accent);
-  }
-
-  @media (max-width: 640px) {
-    .header {
-      padding: var(--s-16) 0 var(--s-12);
-    }
-
-    .section {
-      padding: var(--s-16) 0;
-    }
-  }
+}
