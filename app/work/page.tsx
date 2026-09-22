@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+﻿import type { Metadata } from "next";
 
+import { CtaSection } from "@/components/sections/cta-section";
+import { PageHeader } from "@/components/sections/page-header";
 import { WorkPipeline } from "@/components/visuals/work-pipeline";
 import { howWeWork } from "@/content/work";
 
@@ -41,16 +42,11 @@ const PIPELINE_EXPLANATIONS = [
 export default function WorkPage() {
   return (
     <main id="main" className={styles.page}>
-      <header className={styles.header}>
-        <p className={styles.eyebrow}>Work</p>
-        <h1 className={styles.title}>{howWeWork.heading}</h1>
-        <p className={styles.lead}>
-          Case studies are published on this page when they meet the standard
-          described below. Until then, the page states the standard openly
-          rather than filling the space with work that has not been cleared
-          for publication.
-        </p>
-      </header>
+      <PageHeader
+        eyebrow="Work"
+        title={howWeWork.heading}
+        lead="Case studies are published on this page when they meet the standard described below. Until then, the page states the standard openly rather than filling the space with work that has not been cleared for publication."
+      />
 
       <section className={styles.prose} aria-labelledby="statement-title">
         <h2 id="statement-title" className={styles.sectionTitle}>
@@ -63,7 +59,10 @@ export default function WorkPage() {
         ))}
       </section>
 
-      <section className={styles.pipelineSection} aria-labelledby="pipeline-heading">
+      <section
+        className={styles.pipelineSection}
+        aria-labelledby="pipeline-heading"
+      >
         <p className={styles.sectionEyebrow}>The Pipeline</p>
         <h2 id="pipeline-heading" className={styles.sectionTitle}>
           How a case study gets published
@@ -84,26 +83,14 @@ export default function WorkPage() {
         </ol>
       </section>
 
-      <section className={styles.cta} aria-labelledby="cta-title" data-reveal>
-        <div className={styles.ctaLayout}>
-          <p className={styles.sectionEyebrow}>Start</p>
-          <h2 id="cta-title" className={styles.ctaHeading}>
-            Have a problem worth building?
-          </h2>
-          <p className={styles.ctaBody}>
-            A project begins the same way every case study begins, with a
-            conversation about the problem. We will tell you whether it fits.
-          </p>
-          <div className={styles.ctaActions}>
-            <Link href="/solutions" className={styles.buttonPrimary}>
-              Explore capabilities
-            </Link>
-            <Link href="/company" className={styles.buttonSecondary}>
-              About Lerriley
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection
+        heading="Have a problem worth building?"
+        body="A project begins the same way every case study begins, with a conversation about the problem. We will tell you whether it fits."
+        primaryLabel="Explore capabilities"
+        primaryHref="/solutions"
+        secondaryLabel="About Lerriley"
+        secondaryHref="/company"
+      />
     </main>
   );
 }
