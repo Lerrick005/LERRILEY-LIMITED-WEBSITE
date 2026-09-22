@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -9,37 +9,59 @@ import { company } from "@/content/company";
 import "./globals.css";
 
 /**
- * Fonts are loaded through next/font/google, which downloads them at build
- * time, self-hosts them, subsets them, and emits them with font-display:
- * swap. No runtime request ever reaches Google.
+ * Fonts are loaded from local .woff2 files in public/fonts/.
  *
- * Each font exposes a CSS variable that globals.css consumes:
- *   --font-display-loaded
- *   --font-sans-loaded
- *   --font-mono-loaded
+ * Previously these were fetched from Google Fonts at build time via
+ * next/font/google, which caused every build to hang when the network
+ * could not reach fonts.gstatic.com. The .woff2 files below are the same
+ * files Google serves, downloaded once and committed to the repository.
+ *
+ * No network request is made at build time. No network request is made at
+ * runtime either, because the fonts are served from our own domain.
  *
  * Instrument Serif has only weight 400. Headings must therefore never be
  * bolded; hierarchy comes from size, spacing and position.
  */
 
-const displayFont = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+const displayFont = localFont({
+  src: [
+    {
+      path: "../public/fonts/instrument-serif-regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/instrument-serif-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+  ],
   display: "swap",
   variable: "--font-display-loaded",
   preload: true,
 });
 
-const sansFont = Inter({
-  subsets: ["latin"],
+const sansFont = localFont({
+  src: [
+    {
+      path: "../public/fonts/inter-variable.woff2",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
   display: "swap",
   variable: "--font-sans-loaded",
   preload: true,
 });
 
-const monoFont = JetBrains_Mono({
-  subsets: ["latin"],
+const monoFont = localFont({
+  src: [
+    {
+      path: "../public/fonts/jetbrains-mono-variable.woff2",
+      weight: "100 800",
+      style: "normal",
+    },
+  ],
   display: "swap",
   variable: "--font-mono-loaded",
   preload: false,
@@ -47,14 +69,6 @@ const monoFont = JetBrains_Mono({
 
 /**
  * Metadata is read from content/company.ts. Nothing is invented here.
- *
- * The title template appends the company name to every page title so each
- * page only needs to supply its own topic. The default applies to the home
- * page and any page that does not set its own title.
- *
- * metadataBase depends on NEXT_PUBLIC_SITE_URL. When it is unset (local
- * development), Next.js falls back to http://localhost:3000. In production
- * it must be set or canonical URLs and Open Graph images will be wrong.
  */
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -102,11 +116,6 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
 };
-
-/**
- * Viewport is exported separately in Next.js 15 App Router. themeColor
- * matches --ink-950 so mobile browser chrome blends with the page.
- */
 
 export const viewport: Viewport = {
   width: "device-width",

@@ -5,6 +5,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Prose } from "@/components/prose";
+import { ArticleAnchor } from "@/components/visuals/article-anchor";
 import { loadCollection, loadEntry } from "@/lib/content/loader";
 import { InsightFrontmatterSchema } from "@/lib/content/schemas";
 
@@ -82,6 +83,7 @@ export default async function InsightPage({
               <span className={styles.draftBadge}>Draft</span>
             ) : null}
           </div>
+                    <ArticleAnchor />
           <h1 className={styles.title}>{fm.title}</h1>
           <p className={styles.description}>{fm.description}</p>
         </header>

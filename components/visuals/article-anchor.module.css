@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Article anchor
+   --------------------------------------------------------------------------
+   A hairline rule interrupted by a small gold diamond. Sits above the H1
+   of every article, below the metadata line. Purely decorative.
+   ========================================================================== */
+
+   .wrapper {
+    width: 100%;
+    max-width: 240px;
+    margin: var(--s-6) 0 var(--s-6);
+  }
+
+  .svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .rule {
+    stroke: var(--border);
+    stroke-width: 1;
+    stroke-linecap: round;
+  }
+
+  .diamond {
+    fill: var(--accent);
+  }
