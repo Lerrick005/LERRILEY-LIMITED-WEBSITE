@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CtaSection } from "@/components/sections/cta-section";
+import { PageHeader } from "@/components/sections/page-header";
 import {
   INDUSTRY_MARKS,
   type IndustryMarkKey,
@@ -23,26 +25,17 @@ export default function IndustriesPage() {
 
   return (
     <main id="main" className={styles.page}>
-      <header className={styles.header}>
-        <p className={styles.eyebrow}>Industries</p>
-        <h1 className={styles.title}>Where we work</h1>
-        <p className={styles.lead}>
-          Five industries where the same pattern appears: a workflow that has
-          outgrown the tools around it. Each section below describes the
-          problem, the technology that addresses it, and the capability that
-          fits.
-        </p>
-      </header>
+      <PageHeader
+        eyebrow="Industries"
+        title="Where we work"
+        lead="Five industries where the same pattern appears: a workflow that has outgrown the tools around it. Each section below describes the problem, the technology that addresses it, and the capability that fits."
+      />
 
       <ol className={styles.sections}>
         {sections.map((section, i) => {
           const Mark = INDUSTRY_MARKS[section.slug as IndustryMarkKey];
           return (
-            <li
-              key={section.slug}
-              className={styles.section}
-              data-reveal
-            >
+            <li key={section.slug} className={styles.section} data-reveal>
               <div className={styles.sectionHeader}>
                 <div className={styles.markWrap}>
                   {Mark ? <Mark /> : null}
@@ -69,10 +62,7 @@ export default function IndustriesPage() {
                 <div className={styles.block}>
                   <h3 className={styles.blockTitle}>The capability</h3>
                   <p className={styles.blockText}>
-                    <Link
-                      href={`/solutions`}
-                      className={styles.capabilityLink}
-                    >
+                    <Link href="/solutions" className={styles.capabilityLink}>
                       {section.solutionLabel}
                     </Link>
                   </p>
@@ -83,26 +73,14 @@ export default function IndustriesPage() {
         })}
       </ol>
 
-      <section className={styles.cta} aria-labelledby="cta-title" data-reveal>
-        <div className={styles.ctaLayout}>
-          <p className={styles.eyebrow}>Start</p>
-          <h2 id="cta-title" className={styles.ctaHeading}>
-            Does your industry look like one of these?
-          </h2>
-          <p className={styles.ctaBody}>
-            Tell us what you are trying to solve. If the problem fits what we
-            do, we will say so. If it does not, we will say that too.
-          </p>
-          <div className={styles.ctaActions}>
-            <Link href="/solutions" className={styles.buttonPrimary}>
-              Explore capabilities
-            </Link>
-            <Link href="/company" className={styles.buttonSecondary}>
-              About Lerriley
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection
+        heading="Does your industry look like one of these?"
+        body="Tell us what you are trying to solve. If the problem fits what we do, we will say so. If it does not, we will say that too."
+        primaryLabel="Explore capabilities"
+        primaryHref="/solutions"
+        secondaryLabel="About Lerriley"
+        secondaryHref="/company"
+      />
     </main>
   );
 }

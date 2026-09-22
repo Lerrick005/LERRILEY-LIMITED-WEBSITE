@@ -1,251 +1,132 @@
-
-/* ==========================================================================
+﻿/* ==========================================================================
    Industries page
+   --------------------------------------------------------------------------
+   Page-scoped styles only. Shared patterns come from the design system.
    ========================================================================== */
 
-   .page {
-    width: 100%;
-    max-width: var(--w-full);
-    margin: 0 auto;
-    padding: 0 var(--s-6) var(--s-24);
+.page {
+  width: 100%;
+  max-width: var(--w-full);
+  margin: 0 auto;
+  padding: 0 var(--s-6) var(--s-24);
+}
+
+/* --- Sections list ------------------------------------------------------ */
+
+.sections {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section {
+  padding: var(--s-16) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+  margin-bottom: var(--s-8);
+}
+
+.markWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  background: var(--bg-raised);
+}
+
+.titleBlock {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-4);
+}
+
+.sectionIndex {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.sectionBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-8);
+}
+
+@media (min-width: 720px) {
+  .sectionBody {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-8) var(--s-10);
   }
+}
 
-  .header {
-    padding: var(--s-24) 0 var(--s-16);
-    max-width: var(--w-content);
-    border-bottom: 1px solid var(--border);
-  }
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
 
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 var(--s-4) 0;
-  }
+.blockTitle {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
 
-  .title {
-    font-family: var(--font-display);
-    font-size: var(--fs-h1);
-    font-weight: 400;
-    line-height: var(--lh-tight);
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin: 0 0 var(--s-6) 0;
-    text-wrap: balance;
-  }
+.blockText {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  text-wrap: pretty;
+}
 
-  .lead {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0;
-    max-width: 62ch;
-    text-wrap: pretty;
-  }
+.capabilityLink {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: border-color var(--t-fast), color var(--t-fast);
+}
 
-  /* --- Sections list ------------------------------------------------------ */
+.capabilityLink:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent);
+}
 
-  .sections {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+/* --- Responsive --------------------------------------------------------- */
 
+@media (max-width: 640px) {
   .section {
-    padding: var(--s-16) 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .sectionHeader {
-    display: flex;
-    align-items: center;
-    gap: var(--s-6);
-    margin-bottom: var(--s-8);
+    padding: var(--s-12) 0;
   }
 
   .markWrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 72px;
-    height: 72px;
-    flex-shrink: 0;
-    border: 1px solid var(--border);
-    border-radius: var(--r-2);
-    background: var(--bg-raised);
+    width: 56px;
+    height: 56px;
   }
-
-  .titleBlock {
-    display: flex;
-    align-items: baseline;
-    gap: var(--s-4);
-  }
-
-  .sectionIndex {
-    font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    line-height: 1;
-  }
-
-  .sectionTitle {
-    font-family: var(--font-display);
-    font-size: var(--fs-h2);
-    font-weight: 400;
-    line-height: var(--lh-heading);
-    letter-spacing: -0.01em;
-    color: var(--text);
-    margin: 0;
-    text-wrap: balance;
-  }
-
-  .sectionBody {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-8);
-  }
-
-  @media (min-width: 720px) {
-    .sectionBody {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--s-8) var(--s-10);
-    }
-  }
-
-  .block {
-    display: flex;
-    flex-direction: column;
-    gap: var(--s-3);
-  }
-
-  .blockTitle {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0;
-  }
-
-  .blockText {
-    font-size: var(--fs-body);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0;
-    text-wrap: pretty;
-  }
-
-  .capabilityLink {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
-    transition: border-color var(--t-fast), color var(--t-fast);
-  }
-
-  .capabilityLink:hover {
-    color: var(--accent-hover);
-    border-bottom-color: var(--accent);
-  }
-
-  /* --- Closing CTA -------------------------------------------------------- */
-
-  .cta {
-    padding: var(--s-24) 0 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .ctaLayout {
-    max-width: var(--w-content);
-  }
-
-  .ctaHeading {
-    font-family: var(--font-display);
-    font-size: var(--fs-h1);
-    font-weight: 400;
-    line-height: var(--lh-tight);
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin: 0 0 var(--s-6) 0;
-    text-wrap: balance;
-  }
-
-  .ctaBody {
-    font-size: var(--fs-lead);
-    line-height: var(--lh-body);
-    color: var(--text-secondary);
-    margin: 0 0 var(--s-10) 0;
-    max-width: 56ch;
-    text-wrap: pretty;
-  }
-
-  .ctaActions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s-4);
-    align-items: center;
-  }
-
-  .buttonPrimary,
-  .buttonSecondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: var(--s-3) var(--s-6);
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1;
-    text-decoration: none;
-    border-radius: var(--r-2);
-    border: 1px solid transparent;
-    transition:
-      background-color var(--t-fast),
-      color var(--t-fast),
-      border-color var(--t-fast);
-    white-space: nowrap;
-  }
-
-  .buttonPrimary {
-    background: var(--accent);
-    color: var(--text-inverse);
-    border-color: var(--accent);
-  }
-
-  .buttonPrimary:hover {
-    background: var(--accent-hover);
-    border-color: var(--accent-hover);
-    color: var(--text-inverse);
-  }
-
-  .buttonSecondary {
-    background: transparent;
-    color: var(--text);
-    border-color: var(--border);
-  }
-
-  .buttonSecondary:hover {
-    color: var(--accent-hover);
-    border-color: var(--accent);
-  }
-
-  @media (max-width: 640px) {
-    .header {
-      padding: var(--s-16) 0 var(--s-12);
-    }
-
-    .section {
-      padding: var(--s-12) 0;
-    }
-
-    .markWrap {
-      width: 56px;
-      height: 56px;
-    }
-  }
+}
