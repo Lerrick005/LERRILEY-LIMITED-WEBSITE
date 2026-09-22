@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { company } from "@/content/company";
+import { getSolutions } from "@/content/solutions";
 
 import styles from "./page.module.css";
 
@@ -18,6 +19,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const solutions = getSolutions();
+
   return (
     <div className={styles.page}>
       <main id="main" className={styles.main}>
@@ -111,19 +114,39 @@ export default function HomePage() {
         </section>
 
         {/* --- What we build -------------------------------------------- */}
-        {/* TODO: Step 21 - Capability list, six entries, links to solution pages. */}
         <section className={styles.section} aria-labelledby="capabilities-title">
           <p className={styles.sectionEyebrow}>What We Build</p>
           <h2 id="capabilities-title" className={styles.sectionTitle}>
             Six engineering capabilities
           </h2>
-          <p className={styles.sectionPlaceholder}>
-            Section content arrives in a later step.
-          </p>
+          <div className={styles.capabilities}>
+            {solutions.map((solution, i) => {
+              const number = String(i + 1).padStart(2, "0");
+              return (
+                <Link
+                  key={solution.slug}
+                  href="/solutions"
+                  className={styles.capabilityItem}
+                >
+                  <div className={styles.capabilityItemInner}>
+                    <span className={styles.capabilityIndex}>{number}</span>
+                    <h3 className={styles.capabilityTitle}>{solution.title}</h3>
+                    <p className={styles.capabilitySummary}>{solution.summary}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          <div className={styles.capabilitiesFooter}>
+            <Link href="/solutions" className={styles.capabilitiesFooterLink}>
+              See all capabilities
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </section>
 
         {/* --- Engineering process -------------------------------------- */}
-        {/* TODO: Step 22 - ProcessStepper, seven steps from spec section 6.6. */}
+        {/* TODO: Step 24 - ProcessStepper, seven steps from spec section 6.6. */}
         <section className={styles.section} aria-labelledby="process-title">
           <p className={styles.sectionEyebrow}>How We Work</p>
           <h2 id="process-title" className={styles.sectionTitle}>
@@ -135,7 +158,7 @@ export default function HomePage() {
         </section>
 
         {/* --- Technology ----------------------------------------------- */}
-        {/* TODO: Step 23 - Technology summary, links to /technology. */}
+        {/* TODO: Step 25 - Technology summary, links to /technology. */}
         <section className={styles.section} aria-labelledby="technology-title">
           <p className={styles.sectionEyebrow}>Technology</p>
           <h2 id="technology-title" className={styles.sectionTitle}>
@@ -147,7 +170,7 @@ export default function HomePage() {
         </section>
 
         {/* --- Real work ------------------------------------------------ */}
-        {/* TODO: Step 24 - Published case studies only. Hidden until verified. */}
+        {/* TODO: Step 26 - Published case studies only. Hidden until verified. */}
         <section className={styles.section} aria-labelledby="work-title">
           <p className={styles.sectionEyebrow}>Work</p>
           <h2 id="work-title" className={styles.sectionTitle}>
@@ -159,7 +182,7 @@ export default function HomePage() {
         </section>
 
         {/* --- Industries ----------------------------------------------- */}
-        {/* TODO: Step 25 - Industries summary, links to /industries. */}
+        {/* TODO: Step 27 - Industries summary, links to /industries. */}
         <section className={styles.section} aria-labelledby="industries-title">
           <p className={styles.sectionEyebrow}>Industries</p>
           <h2 id="industries-title" className={styles.sectionTitle}>
@@ -171,7 +194,7 @@ export default function HomePage() {
         </section>
 
         {/* --- Insights ------------------------------------------------ */}
-        {/* TODO: Step 26 - Latest published articles. */}
+        {/* TODO: Step 28 - Latest published articles. */}
         <section className={styles.section} aria-labelledby="insights-title">
           <p className={styles.sectionEyebrow}>Insights</p>
           <h2 id="insights-title" className={styles.sectionTitle}>
@@ -183,7 +206,7 @@ export default function HomePage() {
         </section>
 
         {/* --- Trust ---------------------------------------------------- */}
-        {/* TODO: Step 27 - Evidence only. Omitted entirely until verified data exists. */}
+        {/* TODO: Step 29 - Evidence only. Omitted entirely until verified data exists. */}
         <section className={styles.section} aria-labelledby="trust-title">
           <p className={styles.sectionEyebrow}>Trust</p>
           <h2 id="trust-title" className={styles.sectionTitle}>
@@ -195,7 +218,7 @@ export default function HomePage() {
         </section>
 
         {/* --- Closing CTA --------------------------------------------- */}
-        {/* TODO: Step 28 - Start a Project closing CTA block. */}
+        {/* TODO: Step 30 - Start a Project closing CTA block. */}
         <section className={styles.section} aria-labelledby="cta-title">
           <p className={styles.sectionEyebrow}>Start</p>
           <h2 id="cta-title" className={styles.sectionTitle}>

@@ -2,7 +2,8 @@
    Home page styles
    --------------------------------------------------------------------------
    Page-scoped styles. Component-level styling lives in components/*.module.css.
-   These rules cover the hero, the problem section, and the section skeleton.
+   These rules cover the hero, the problem section, the capability list,
+   and the section skeleton.
    ========================================================================== */
 
    .page {
@@ -216,12 +217,112 @@
     margin: 0;
   }
 
+  /* --- What We Build section ------------------------------------------------
+     Editorial capability list. Each row links to the solutions index. The
+     layout is a two-column grid inside each row: title on the left, summary
+     on the right. Hairlines between rows, not cards (spec section 4.3).
+     -------------------------------------------------------------------------- */
+
+  .capabilities {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .capabilityItem {
+    display: block;
+    text-decoration: none;
+    padding: var(--s-8) 0;
+    border-bottom: 1px solid var(--border);
+    transition: background-color var(--t-fast);
+  }
+
+  .capabilityItem:hover {
+    background-color: color-mix(in srgb, var(--accent) 4%, transparent);
+  }
+
+  .capabilityItemInner {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: var(--s-4) var(--s-8);
+    align-items: baseline;
+  }
+
+  .capabilityIndex {
+    font-family: var(--font-mono);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    line-height: 1.4;
+  }
+
+  .capabilityTitle {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    line-height: var(--lh-heading);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0;
+    transition: color var(--t-fast);
+  }
+
+  .capabilityItem:hover .capabilityTitle {
+    color: var(--accent-hover);
+  }
+
+  .capabilitySummary {
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
+  .capabilitiesFooter {
+    margin-top: var(--s-10);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-4);
+    align-items: center;
+  }
+
+  .capabilitiesFooterLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--t-fast);
+  }
+
+  .capabilitiesFooterLink:hover {
+    color: var(--accent-hover);
+  }
+
   /* --- Responsive ----------------------------------------------------------- */
 
   @media (max-width: 900px) {
     .problemLayout {
       grid-template-columns: 1fr;
       gap: var(--s-12);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .capabilityItemInner {
+      grid-template-columns: 3rem 1fr;
+      gap: var(--s-3) var(--s-4);
+    }
+
+    .capabilitySummary {
+      grid-column: 2;
+      margin-top: var(--s-2);
     }
   }
 
