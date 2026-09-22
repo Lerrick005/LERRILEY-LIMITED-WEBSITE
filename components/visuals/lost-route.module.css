@@ -1,0 +1,46 @@
+﻿/* ==========================================================================
+   Lost route visual
+   ========================================================================== */
+
+.wrapper {
+  width: 100%;
+  max-width: 200px;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.solid {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.fading {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 2 4;
+  opacity: 0.6;
+  transition: opacity 400ms ease;
+}
+
+.dot {
+  fill: var(--accent);
+  opacity: 0.8;
+}
+
+.wrapper:hover .fading {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fading {
+    transition: none;
+  }
+}

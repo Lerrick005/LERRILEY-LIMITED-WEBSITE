@@ -1,0 +1,117 @@
+﻿/* ==========================================================================
+   Custom 404 page
+   ========================================================================== */
+
+.page {
+  width: 100%;
+  max-width: var(--w-full);
+  margin: 0 auto;
+  padding: var(--s-32) var(--s-6) var(--s-32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - 400px);
+}
+
+.inner {
+  max-width: 40rem;
+  text-align: left;
+}
+
+.visual {
+  margin-bottom: var(--s-10);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 0 0 var(--s-4) 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 var(--s-6) 0;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0 0 var(--s-10) 0;
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+  align-items: center;
+}
+
+.buttonPrimary,
+.buttonSecondary,
+.buttonText {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-6);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: var(--r-2);
+  border: 1px solid transparent;
+  transition: background-color var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+  white-space: nowrap;
+}
+
+.buttonPrimary {
+  background: var(--accent);
+  color: var(--text-inverse);
+  border-color: var(--accent);
+}
+
+.buttonPrimary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--text-inverse);
+}
+
+.buttonSecondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.buttonSecondary:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent);
+}
+
+.buttonText {
+  padding: var(--s-3) var(--s-2);
+  color: var(--accent);
+  background: transparent;
+}
+
+.buttonText:hover {
+  color: var(--accent-hover);
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: var(--s-16) var(--s-6) var(--s-16);
+  }
+}
