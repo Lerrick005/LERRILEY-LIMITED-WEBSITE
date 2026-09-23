@@ -74,7 +74,7 @@ export const solutions: readonly Solution[] = [
     summary:
       "Predictive modeling, classification, forecasting and anomaly detection, with explicit evaluation and monitoring after deployment.",
     order: 5,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "automation",
@@ -82,7 +82,7 @@ export const solutions: readonly Solution[] = [
     summary:
       "Workflows that remove repetitive manual work through reliable integrations, with clear auditability and recovery paths.",
     order: 6,
-    status: "draft",
+    status: "published",
   },
 ] as const;
 

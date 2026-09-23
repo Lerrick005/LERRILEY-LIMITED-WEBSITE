@@ -1,0 +1,118 @@
+﻿/* ==========================================================================
+   Automation trigger diagram
+   --------------------------------------------------------------------------
+   One trigger box on the left, three action boxes on the right, connected
+   by curved lines. A gold dot travels the top path. Static under
+   prefers-reduced-motion.
+   ========================================================================== */
+
+.wrapper {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.trigger,
+.action {
+  fill: color-mix(in srgb, var(--accent) 4%, transparent);
+  stroke: var(--accent);
+  stroke-width: 1;
+  transition: fill 200ms ease;
+}
+
+.trigger {
+  fill: color-mix(in srgb, var(--accent) 10%, transparent);
+  stroke-width: 1.5;
+}
+
+.trigger:hover,
+.action:hover {
+  fill: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.connector {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  fill: var(--text);
+  pointer-events: none;
+}
+
+.dot {
+  fill: var(--accent);
+  animation: travel 9s linear infinite;
+  filter: drop-shadow(
+    0 0 4px color-mix(in srgb, var(--accent) 70%, transparent)
+  );
+}
+
+@keyframes travel {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  30% {
+    transform: translate(200px, -100px);
+    opacity: 1;
+  }
+  35% {
+    transform: translate(200px, -100px);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  }
+  65% {
+    transform: translate(200px, 0);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(200px, 0);
+    opacity: 0;
+  }
+  75% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  95% {
+    transform: translate(200px, 100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(200px, 100px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+    opacity: 0;
+  }
+}
