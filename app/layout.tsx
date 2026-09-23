@@ -1,9 +1,11 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
 import { RevealProvider } from "@/components/reveal-provider";
+import { OrganizationSchema } from "@/components/seo/organization-schema";
+import { WebSiteSchema } from "@/components/seo/website-schema";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { company } from "@/content/company";
 
 import "./globals.css";
@@ -138,6 +140,8 @@ export default function RootLayout({
       className={`${displayFont.variable} ${sansFont.variable} ${monoFont.variable}`}
     >
       <body>
+        <OrganizationSchema />
+        <WebSiteSchema />
         <a href="#main" className="skip-link">
           Skip to main content
         </a>
