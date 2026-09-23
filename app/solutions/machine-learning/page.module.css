@@ -1,0 +1,310 @@
+﻿/* ==========================================================================
+   Web Development solution page
+   --------------------------------------------------------------------------
+   Page-scoped styles. Shared patterns (buttons, page header, CTA) come
+   from the design system and sections folders.
+   ========================================================================== */
+
+.page {
+  width: 100%;
+  max-width: var(--w-full);
+  margin: 0 auto;
+  padding: 0 var(--s-6) var(--s-24);
+}
+
+.breadcrumbsWrap {
+  padding: var(--s-8) 0 0;
+}
+
+/* --- Header with diagram ------------------------------------------------ */
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-12);
+  padding: var(--s-16) 0 var(--s-16);
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+@media (min-width: 720px) {
+  .header {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: var(--s-16);
+  }
+}
+
+.headerContent {
+  max-width: var(--w-content);
+}
+
+.headerVisual {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 var(--s-6) 0;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* --- Sections ----------------------------------------------------------- */
+
+.section {
+  padding: var(--s-24) 0;
+  border-top: 1px solid var(--border);
+}
+
+.sectionEyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s-4) 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 var(--s-8) 0;
+  max-width: var(--w-content);
+  text-wrap: balance;
+}
+
+.prose {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  max-width: 66ch;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.sectionFooter {
+  margin-top: var(--s-8);
+}
+
+.inlineLink {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: border-color var(--t-fast), color var(--t-fast);
+}
+
+.inlineLink:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent);
+}
+
+/* --- Problems list ------------------------------------------------------ */
+
+.problemList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.problemItem {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--s-4);
+  padding: var(--s-5) 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+
+.problemIndex {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.problemText {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text);
+  margin: 0;
+  max-width: 66ch;
+  text-wrap: pretty;
+}
+
+/* --- Builds list -------------------------------------------------------- */
+
+.buildsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.buildsItem {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text);
+  padding: var(--s-5) 0;
+  border-bottom: 1px solid var(--border);
+  max-width: 66ch;
+  text-wrap: pretty;
+}
+
+/* --- Technologies ------------------------------------------------------- */
+
+.techList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-6);
+  border-top: 1px solid var(--border);
+  padding-top: var(--s-6);
+}
+
+.techItem {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  margin: 0;
+}
+
+/* --- Use cases ---------------------------------------------------------- */
+
+.useCaseGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-6);
+}
+
+@media (min-width: 720px) {
+  .useCaseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-8);
+  }
+}
+
+.useCaseCard {
+  padding: var(--s-6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  background: var(--bg-raised);
+}
+
+.useCaseTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 var(--s-3) 0;
+  text-wrap: balance;
+}
+
+.useCaseBody {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* --- Industries --------------------------------------------------------- */
+
+.industryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-6);
+  border-top: 1px solid var(--border);
+  padding-top: var(--s-6);
+}
+
+.industryItem {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  margin: 0;
+}
+
+/* --- FAQ ---------------------------------------------------------------- */
+
+.faqList {
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.faqItem {
+  padding: var(--s-6) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.faqQuestion {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 var(--s-3) 0;
+  text-wrap: balance;
+}
+
+.faqAnswer {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 66ch;
+  text-wrap: pretty;
+}
+
+/* --- CTA wrapper -------------------------------------------------------- */
+
+.ctaWrap {
+  margin-top: var(--s-24);
+}
+
+/* --- Responsive --------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .header {
+    padding: var(--s-12) 0 var(--s-12);
+  }
+
+  .section {
+    padding: var(--s-16) 0;
+  }
+}

@@ -1,0 +1,76 @@
+﻿/* ==========================================================================
+   Training loop diagram
+   --------------------------------------------------------------------------
+   Five nodes arranged on a circle, connected by a faint ring. A gold dot
+   travels the ring to indicate the loop. Static under reduced motion.
+   ========================================================================== */
+
+.wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.ring {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+}
+
+.node {
+  fill: color-mix(in srgb, var(--accent) 4%, transparent);
+  stroke: var(--accent);
+  stroke-width: 1;
+  transition: fill 200ms ease;
+}
+
+.node:hover {
+  fill: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: var(--text);
+  pointer-events: none;
+}
+
+.center {
+  fill: var(--accent);
+  opacity: 0.6;
+}
+
+.dot {
+  fill: var(--accent);
+  transform-origin: 200px 200px;
+  animation: orbit 20s linear infinite;
+  filter: drop-shadow(
+    0 0 4px color-mix(in srgb, var(--accent) 70%, transparent)
+  );
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+  }
+}
