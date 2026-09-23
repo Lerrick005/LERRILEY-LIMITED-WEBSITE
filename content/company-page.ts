@@ -1,13 +1,11 @@
-import { z } from "zod";
+﻿import { z } from "zod";
 
 /**
  * Company page content.
  *
  * Everything on this page is a description of what Lerriley IS, BELIEVES,
  * or INTENDS. There is no history, no founding story, no team, no awards,
- * no client names, no statistics. Those require verified facts that do not
- * exist yet. If they become available, they are added in a separate
- * verified content block, not woven into the copy here.
+ * no client names, no statistics.
  */
 
 export const CompanyPageSchema = z.object({
@@ -17,6 +15,22 @@ export const CompanyPageSchema = z.object({
 
   beliefsHeading: z.string().min(4).max(80),
   beliefs: z
+    .array(
+      z.object({
+        number: z.string().regex(/^\d{2}$/),
+        title: z.string().min(2).max(60),
+        body: z.string().min(40).max(320),
+      }),
+    )
+    .min(3)
+    .max(6),
+
+  problemsHeading: z.string().min(4).max(80),
+  problemsLead: z.string().min(40).max(300),
+  problems: z.array(z.string().min(20).max(300)).min(3).max(8),
+
+  workingHeading: z.string().min(4).max(80),
+  working: z
     .array(
       z.object({
         number: z.string().regex(/^\d{2}$/),
@@ -68,7 +82,43 @@ export const companyPage: CompanyPage = CompanyPageSchema.parse({
     },
   ],
 
-  approachHeading: "How we work with clients",
+  problemsHeading: "Problems we solve",
+  problemsLead:
+    "We work on problems where technology is part of the answer, but the problem itself is not a technology problem. The categories below describe the kinds of work we take on.",
+  problems: [
+    "A workflow that has outgrown the tools it runs on, and is now maintained through spreadsheets and manual steps.",
+    "A system that no longer matches how the organization actually operates, but that no one can safely change.",
+    "Data that exists but cannot be used, because it is scattered across systems that do not talk to each other.",
+    "A process that produces the same errors every week, because it depends on people remembering to do the same thing correctly.",
+    "A public-facing site or application that is slow, inaccessible, or invisible to search engines.",
+    "A reporting need that takes days to satisfy, when it should take minutes.",
+  ],
+
+  workingHeading: "How we work with clients",
+  working: [
+    {
+      number: "01",
+      title: "We start with the problem",
+      body: "Every engagement begins with a conversation about the problem, not the technology. We ask about the workflow, the people who use it, and what the organization needs to be true at the end. No proposal is written before this conversation happens.",
+    },
+    {
+      number: "02",
+      title: "We write down what we are building",
+      body: "Before development starts, we produce a written definition of what is being built, what is not, and what success looks like. This document is the reference for every decision during the project. When scope changes, the document changes with it.",
+    },
+    {
+      number: "03",
+      title: "We deliver in reviewable stages",
+      body: "Work is released in increments with working software at each step. The client sees progress throughout the engagement, not a single reveal at the end. Feedback arrives early, when it can still change the outcome.",
+    },
+    {
+      number: "04",
+      title: "The client owns what we build",
+      body: "Code, data, and infrastructure belong to the client. There is no proprietary platform, no licence fee, and no lock-in. Documentation is delivered alongside the system, and the client's team can take over maintenance at any point.",
+    },
+  ],
+
+  approachHeading: "Our engineering approach",
   approach:
     "Every engagement begins with a conversation about the problem, not about the technology. We write down what is being built, what is not, and what success looks like. We deliver in reviewable increments, so progress is visible throughout rather than saved for a single reveal at the end. When the system is in production, we support it with backups, monitoring and a clear path to change. The client owns the code, the data and the infrastructure. There is no lock-in to a platform we control.",
 

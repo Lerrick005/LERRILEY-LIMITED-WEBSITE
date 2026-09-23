@@ -150,3 +150,50 @@
   max-width: 340px;
   margin: 0 auto;
 }
+
+/* --- Section lead ------------------------------------------------------- */
+
+.sectionLead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0 0 var(--s-8) 0;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* --- Problems list ------------------------------------------------------ */
+
+.problemList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.problemItem {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: var(--s-4);
+  padding: var(--s-5) 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+
+.problemIndex {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.problemText {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text);
+  margin: 0;
+  max-width: 66ch;
+  text-wrap: pretty;
+}

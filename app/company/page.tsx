@@ -53,6 +53,48 @@ export default function CompanyPageRoute() {
 
       <section
         className={styles.section}
+        aria-labelledby="problems-title"
+        data-reveal
+      >
+        <p className={styles.sectionEyebrow}>Problems</p>
+        <h2 id="problems-title" className={styles.sectionTitle}>
+          {companyPage.problemsHeading}
+        </h2>
+        <p className={styles.sectionLead}>{companyPage.problemsLead}</p>
+        <ul className={styles.problemList} data-reveal-stagger>
+          {companyPage.problems.map((problem, i) => (
+            <li key={i} className={styles.problemItem} data-reveal>
+              <span className={styles.problemIndex}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className={styles.problemText}>{problem}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section
+        className={styles.section}
+        aria-labelledby="working-title"
+        data-reveal
+      >
+        <p className={styles.sectionEyebrow}>Working together</p>
+        <h2 id="working-title" className={styles.sectionTitle}>
+          {companyPage.workingHeading}
+        </h2>
+        <ol className={styles.beliefList} data-reveal-stagger>
+          {companyPage.working.map((step) => (
+            <li key={step.number} className={styles.beliefItem} data-reveal>
+              <span className={styles.beliefNumber}>{step.number}</span>
+              <h3 className={styles.beliefTitle}>{step.title}</h3>
+              <p className={styles.beliefBody}>{step.body}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section
+        className={styles.section}
         aria-labelledby="approach-title"
         data-reveal
       >
