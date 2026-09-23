@@ -2,6 +2,7 @@
 import Link from "next/link";
 
 import { PageHeader } from "@/components/sections/page-header";
+import { EditorialMark } from "@/components/visuals/editorial-mark";
 import { loadCollection } from "@/lib/content/loader";
 import { InsightFrontmatterSchema } from "@/lib/content/schemas";
 
@@ -21,11 +22,16 @@ export default function InsightsIndexPage() {
 
   return (
     <main id="main" className={styles.page}>
-      <PageHeader
-        eyebrow="Insights"
-        title="Notes on engineering"
-        lead="Writing on the topics we work with: applied AI, data systems, business technology and the engineering practice behind them."
-      />
+      <div className={styles.headerWrap}>
+        <PageHeader
+          eyebrow="Insights"
+          title="Notes on engineering"
+          lead="Writing on the topics we work with: applied AI, data systems, business technology and the engineering practice behind them."
+        />
+        <div className={styles.headerVisual}>
+          <EditorialMark />
+        </div>
+      </div>
 
       {entries.length === 0 ? (
         <section className={styles.empty}>

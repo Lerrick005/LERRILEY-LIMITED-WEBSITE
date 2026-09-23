@@ -111,3 +111,28 @@
     font-size: var(--fs-h3);
   }
 }
+
+/* --- Header with editorial mark ------------------------------------------
+   Two columns on wider screens: PageHeader on the left, editorial mark on
+   the right. Single column below 720px.
+   -------------------------------------------------------------------------- */
+
+.headerWrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-12);
+  align-items: center;
+}
+
+@media (min-width: 720px) {
+  .headerWrap {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: var(--s-16);
+  }
+}
+
+.headerVisual {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}

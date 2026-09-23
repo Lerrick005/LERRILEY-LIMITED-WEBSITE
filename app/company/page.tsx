@@ -3,6 +3,7 @@
 import { CtaSection } from "@/components/sections/cta-section";
 import { FooterLine } from "@/components/sections/footer-line";
 import { PageHeader } from "@/components/sections/page-header";
+import { CompassMark } from "@/components/visuals/compass-mark";
 import { companyPage } from "@/content/company-page";
 
 import styles from "./page.module.css";
@@ -19,11 +20,16 @@ export const metadata: Metadata = {
 export default function CompanyPageRoute() {
   return (
     <main id="main" className={styles.page}>
-      <PageHeader
-        eyebrow={companyPage.eyebrow}
-        title={companyPage.heading}
-        lead={companyPage.lead}
-      />
+      <div className={styles.headerWrap}>
+        <PageHeader
+          eyebrow={companyPage.eyebrow}
+          title={companyPage.heading}
+          lead={companyPage.lead}
+        />
+        <div className={styles.headerVisual}>
+          <CompassMark />
+        </div>
+      </div>
 
       <section
         className={styles.section}
