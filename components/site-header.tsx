@@ -1,9 +1,11 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+
+import { track } from "@/lib/analytics/track";
 
 import styles from "./site-header.module.css";
 
@@ -18,6 +20,9 @@ import styles from "./site-header.module.css";
  *   - Traps focus inside the drawer while it is open.
  *   - Marks the page body inert while the drawer is open.
  *   - Uses aria-expanded and aria-controls to describe the relationship.
+ *
+ * Both call-to-action links fire a cta_click analytics event with a
+ * location that distinguishes the desktop header from the mobile drawer.
  */
 
 type NavItem = {
@@ -102,6 +107,15 @@ export function SiteHeader() {
     };
   }, [open]);
 
+  const handleCtaClick = (location: "header" | "header-drawer") => {
+    track({
+      name: "cta_click",
+      location,
+      label: "Start a Project",
+      intent: "start-project",
+    });
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -145,7 +159,11 @@ export function SiteHeader() {
             })}
           </ul>
 
-          <Link href="/contact" className={styles.cta}>
+          <Link
+            href="/contact"
+            className={styles.cta}
+            onClick={() => handleCtaClick("header")}
+          >
             Start a Project
           </Link>
 
@@ -209,7 +227,11 @@ export function SiteHeader() {
             })}
           </ul>
           <div className={styles.drawerCta}>
-            <Link href="/contact" className={styles.drawerCtaLink}>
+            <Link
+              href="/contact"
+              className={styles.drawerCtaLink}
+              onClick={() => handleCtaClick("header-drawer")}
+            >
               Start a Project
             </Link>
           </div>

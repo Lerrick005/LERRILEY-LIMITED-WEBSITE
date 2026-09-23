@@ -1,5 +1,8 @@
 ﻿import Link from "next/link";
 
+import { TrackedLink } from "@/components/analytics/tracked-link";
+import type { AnalyticsEvent } from "@/lib/analytics/events";
+
 import styles from "./button.module.css";
 
 /**
@@ -10,7 +13,8 @@ import styles from "./button.module.css";
  * through to either a Link or a button element.
  *
  * Rendering rule:
- *   - If href is provided, renders a Next.js Link (an anchor element).
+ *   - If href is provided, renders a Link. If a trackEvent is also
+ *     provided, renders a TrackedLink that fires the event on click.
  *   - Otherwise, renders a button element with the given type and onClick.
  *
  * This is a server component. Interactivity comes from the props passed
@@ -24,6 +28,8 @@ type BaseProps = {
   size?: "default" | "small";
   className?: string;
   children: React.ReactNode;
+  /** Optional analytics event to fire on click. */
+  trackEvent?: AnalyticsEvent;
 };
 
 type LinkProps = BaseProps & {
@@ -43,7 +49,13 @@ type ButtonProps = BaseProps & {
 export type ButtonComponentProps = LinkProps | ButtonProps;
 
 export function Button(props: ButtonComponentProps) {
-  const { variant = "primary", size = "default", className, children } = props;
+  const {
+    variant = "primary",
+    size = "default",
+    className,
+    children,
+    trackEvent,
+  } = props;
 
   const classes = [
     styles.button,
@@ -55,6 +67,13 @@ export function Button(props: ButtonComponentProps) {
     .join(" ");
 
   if ("href" in props && props.href) {
+    if (trackEvent) {
+      return (
+        <TrackedLink href={props.href} event={trackEvent} className={classes}>
+          {children}
+        </TrackedLink>
+      );
+    }
     return (
       <Link href={props.href} className={classes}>
         {children}

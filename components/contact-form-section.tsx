@@ -7,6 +7,7 @@ import {
   type IntentIconKey,
 } from "@/components/visuals/intent-icons";
 import { contactIntents, contactPage } from "@/content/contact";
+import { track } from "@/lib/analytics/track";
 import {
   BUDGET_OPTIONS,
   ContactFormSchema,
@@ -24,6 +25,10 @@ import styles from "@/app/contact/page.module.css";
  *
  * The form includes a honeypot field and a time-trap. Real users never
  * notice them; bots that fill everything or submit instantly are rejected.
+ *
+ * Two analytics events fire here:
+ *   - form_start: once, on the first focus of any field in the form.
+ *   - form_submit: after a successful submission.
  */
 
 type IntentSlug = (typeof contactIntents)[number]["slug"];
@@ -38,10 +43,20 @@ export function ContactFormSection() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const mountedAt = useRef<number>(Date.now());
+  const hasStarted = useRef<boolean>(false);
 
   useEffect(() => {
     mountedAt.current = Date.now();
   }, []);
+
+  const handleFormFocus = () => {
+    if (hasStarted.current) return;
+    hasStarted.current = true;
+    track({
+      name: "form_start",
+      intent: selected ?? "something-else",
+    });
+  };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -51,12 +66,14 @@ export function ContactFormSection() {
     const form = event.currentTarget;
     const data = new FormData(form);
 
+    const intent = selected ?? "something-else";
+
     const raw = {
       name: String(data.get("name") ?? ""),
       organization: String(data.get("organization") ?? ""),
       email: String(data.get("email") ?? ""),
       phone: String(data.get("phone") ?? ""),
-      projectType: selected ?? "something-else",
+      projectType: intent,
       problem: String(data.get("problem") ?? ""),
       budget: String(data.get("budget") ?? ""),
       timeline: String(data.get("timeline") ?? ""),
@@ -94,6 +111,8 @@ export function ContactFormSection() {
       if (!res.ok) {
         throw new Error("Submission failed");
       }
+
+      track({ name: "form_submit", intent });
 
       setState("success");
       form.reset();
@@ -170,6 +189,7 @@ export function ContactFormSection() {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
+            onFocus={handleFormFocus}
             noValidate
             className={styles.form}
           >
