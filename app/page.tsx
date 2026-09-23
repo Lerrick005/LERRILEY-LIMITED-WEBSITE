@@ -318,9 +318,21 @@ export default function HomePage() {
             heading={closingCta.heading}
             body={closingCta.body}
             primaryLabel={closingCta.primaryLabel}
-            primaryHref="/contact"
+            primaryHref="/contact?intent=start-project"
+            primaryTrackEvent={{
+              name: "cta_click",
+              location: "home-closing",
+              label: closingCta.primaryLabel,
+              intent: "start-project",
+            }}
             secondaryLabel={closingCta.secondaryLabel}
             secondaryHref="/solutions"
+            secondaryTrackEvent={{
+              name: "cta_click",
+              location: "home-closing",
+              label: closingCta.secondaryLabel,
+              intent: "explore",
+            }}
           />
         </div>
       </main>

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { CtaSection } from "@/components/sections/cta-section";
 import { FooterLine } from "@/components/sections/footer-line";
@@ -116,14 +116,25 @@ export default function CompanyPageRoute() {
         </h2>
         <p className={styles.prose}>{companyPage.vision}</p>
       </section>
-
       <CtaSection
         heading={companyPage.ctaHeading}
         body={companyPage.ctaBody}
         primaryLabel="Explore capabilities"
         primaryHref="/solutions"
+        primaryTrackEvent={{
+          name: "cta_click",
+          location: "company-closing",
+          label: "Explore capabilities",
+          intent: "explore",
+        }}
         secondaryLabel="Contact"
         secondaryHref="/contact"
+        secondaryTrackEvent={{
+          name: "cta_click",
+          location: "company-closing",
+          label: "Contact",
+          intent: "contact",
+        }}
       />
 
       <FooterLine />
