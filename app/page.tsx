@@ -154,7 +154,7 @@ export default function HomePage() {
               return (
                 <Link
                   key={solution.slug}
-                  href="/solutions"
+                href={`/solutions/${solution.slug}`}
                   className={styles.capabilityItem}
                 >
                   <div className={styles.capabilityItemInner}>
