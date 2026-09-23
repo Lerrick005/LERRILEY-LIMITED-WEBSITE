@@ -1,0 +1,79 @@
+﻿/* ==========================================================================
+   Business workflow diagram
+   --------------------------------------------------------------------------
+   Four labelled boxes connected by a line. Gold stroke. A gold dot
+   travels the line on a slow CSS keyframe, disabled under reduced motion.
+   ========================================================================== */
+
+.wrapper {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.line {
+  stroke: var(--border);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.box {
+  fill: color-mix(in srgb, var(--accent) 4%, transparent);
+  stroke: var(--accent);
+  stroke-width: 1;
+  transition: fill 200ms ease;
+}
+
+.box:hover {
+  fill: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  fill: var(--text);
+  pointer-events: none;
+}
+
+.dot {
+  fill: var(--accent);
+  cx: 140;
+  animation: travel 8s linear infinite;
+  filter: drop-shadow(
+    0 0 3px color-mix(in srgb, var(--accent) 60%, transparent)
+  );
+}
+
+@keyframes travel {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+    opacity: 0;
+  }
+}

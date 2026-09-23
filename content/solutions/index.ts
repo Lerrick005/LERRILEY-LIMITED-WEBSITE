@@ -50,7 +50,7 @@ export const solutions: readonly Solution[] = [
     summary:
       "Custom software designed around how an organization actually works, rather than a template it has to work around.",
     order: 2,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "ai-software",
