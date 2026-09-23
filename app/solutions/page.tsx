@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CapabilityRing } from "@/components/visuals/capability-ring";
@@ -15,18 +15,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Solutions index.
- *
- * Renders all six capabilities in order. Entries whose detail page is
- * published render as links; entries that are still drafts render as plain
- * rows. This is why nothing on this page links to a route that does not
- * exist (addendum rule 7).
- *
- * Right now every entry is a draft, so the list is a plain editorial index.
- * When the first solution page goes live, changing its status to
- * "published" in content/solutions/index.ts is the only edit required.
- */
 export default function SolutionsPage() {
   const items = getSolutions();
 
@@ -45,6 +33,33 @@ export default function SolutionsPage() {
           <CapabilityRing />
         </div>
       </header>
+
+      <section className={styles.intro} aria-labelledby="intro-title">
+        <h2 id="intro-title" className={styles.introTitle}>
+          How to use this section
+        </h2>
+        <div className={styles.introProse}>
+          <p>
+            The six entries below are the disciplines Lerriley works across.
+            They are not products, and they are not packages. They are the
+            kinds of engineering problems we take on, described in the
+            language of what each one produces.
+          </p>
+          <p>
+            Most real engagements do not fit inside a single capability. A
+            business software project may need a web interface, an automated
+            workflow, and a data layer. A machine learning project almost
+            always starts with data work. Start with the problem you are
+            trying to solve, and the relevant capability will usually be
+            clear. Where it is not, the first conversation settles it.
+          </p>
+          <p>
+            Choosing a capability is not a purchase. It is the beginning of a
+            conversation about what you are building, what the constraints
+            are, and whether Lerriley is the right partner for it.
+          </p>
+        </div>
+      </section>
 
       <ul className={styles.list}>
         {items.map((solution, i) => {
