@@ -58,7 +58,7 @@ export const solutions: readonly Solution[] = [
     summary:
       "Practical AI engineering: integrations, intelligent automation, document intelligence and natural-language interfaces applied where they deliver measurable value.",
     order: 3,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "data-science",
