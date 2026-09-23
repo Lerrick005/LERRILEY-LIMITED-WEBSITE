@@ -160,3 +160,54 @@
     padding: var(--s-16) 0;
   }
 }
+
+/* --- Decision principles -------------------------------------------------
+   Four numbered principles in a grid. Same visual language as the beliefs
+   list on the company page.
+   -------------------------------------------------------------------------- */
+
+.principleList {
+  list-style: none;
+  padding: 0;
+  margin: var(--s-10) 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s-10) var(--s-12);
+  border-top: 1px solid var(--border);
+  padding-top: var(--s-10);
+}
+
+.principleItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.principleNumber {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.principleTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.principleBody {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 44ch;
+  text-wrap: pretty;
+}

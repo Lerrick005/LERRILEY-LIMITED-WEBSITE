@@ -4,7 +4,11 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { FooterLine } from "@/components/sections/footer-line";
 import { PageHeader } from "@/components/sections/page-header";
 import { TechStack } from "@/components/visuals/tech-stack";
-import { getTechnologySummary } from "@/content/technology";
+import {
+  approachContent,
+  decisionPrinciples,
+  getTechnologySummary,
+} from "@/content/technology";
 
 import styles from "./page.module.css";
 
@@ -65,22 +69,30 @@ export default function TechnologyPage() {
         </ol>
       </section>
 
-      <section className={styles.section} aria-labelledby="approach-title" data-reveal>
+      <section
+        className={styles.section}
+        aria-labelledby="approach-title"
+        data-reveal
+      >
         <p className={styles.sectionEyebrow}>Approach</p>
         <h2 id="approach-title" className={styles.sectionTitle}>
-          How technology is chosen
+          {approachContent.heading}
         </h2>
-        <p className={styles.sectionLead}>
-          We start with the problem and the workflow. The technology follows
-          from there. A rule in code is better than a model where a rule
-          suffices. A single database is better than three where one will do.
-          The simplest system that solves the problem is the correct system.
-        </p>
-        <p className={styles.sectionLead}>
-          This is why the same company can build a clinic management system in
-          one month and a machine learning pipeline in another. The tools
-          change. The method does not.
-        </p>
+        <p className={styles.sectionLead}>{approachContent.lead}</p>
+
+        <ol className={styles.principleList} data-reveal-stagger>
+          {decisionPrinciples.map((principle) => (
+            <li
+              key={principle.number}
+              className={styles.principleItem}
+              data-reveal
+            >
+              <span className={styles.principleNumber}>{principle.number}</span>
+              <h3 className={styles.principleTitle}>{principle.title}</h3>
+              <p className={styles.principleBody}>{principle.body}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <CtaSection
