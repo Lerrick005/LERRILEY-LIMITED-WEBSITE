@@ -1,0 +1,87 @@
+﻿/* ==========================================================================
+   AI pipeline diagram
+   --------------------------------------------------------------------------
+   Five boxes on a horizontal flow. The Decision box is drawn larger to
+   indicate the branch point. A gold dot travels the line, disabled under
+   prefers-reduced-motion.
+   ========================================================================== */
+
+.wrapper {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.line {
+  stroke: var(--border);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.box,
+.boxLarge {
+  fill: color-mix(in srgb, var(--accent) 4%, transparent);
+  stroke: var(--accent);
+  stroke-width: 1;
+  transition: fill 200ms ease;
+}
+
+.boxLarge {
+  fill: color-mix(in srgb, var(--accent) 10%, transparent);
+  stroke-width: 1.5;
+}
+
+.box:hover,
+.boxLarge:hover {
+  fill: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: var(--text);
+  pointer-events: none;
+}
+
+.dot {
+  fill: var(--accent);
+  cx: 100;
+  animation: travel 9s linear infinite;
+  filter: drop-shadow(
+    0 0 3px color-mix(in srgb, var(--accent) 60%, transparent)
+  );
+}
+
+@keyframes travel {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(430px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+    opacity: 0;
+  }
+}
