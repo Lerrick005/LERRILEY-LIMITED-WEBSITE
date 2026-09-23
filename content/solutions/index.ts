@@ -66,7 +66,7 @@ export const solutions: readonly Solution[] = [
     summary:
       "Analysis, visualization, dashboards and data pipelines that turn scattered information into decisions an organization can act on.",
     order: 4,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "machine-learning",
