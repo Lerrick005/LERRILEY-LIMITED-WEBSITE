@@ -6,6 +6,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Prose } from "@/components/prose";
 import { ArticleAnchor } from "@/components/visuals/article-anchor";
+import { ArticleSchema } from "@/components/seo/article-schema";
+import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
 import { loadCollection, loadEntry } from "@/lib/content/loader";
 import { InsightFrontmatterSchema } from "@/lib/content/schemas";
 
@@ -63,6 +65,21 @@ export default async function InsightPage({
 
   return (
     <main id="main" className={styles.page}>
+      <ArticleSchema
+        headline={fm.title}
+        description={fm.description}
+        publishedAt={fm.publishedAt}
+        updatedAt={fm.updatedAt}
+        author={fm.author}
+        path={`/insights/${fm.slug}`}
+      />
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Insights", path: "/insights" },
+          { name: fm.title, path: `/insights/${fm.slug}` },
+        ]}
+      />
       <div className={styles.breadcrumbsWrap}>
         <Breadcrumbs
           items={[
