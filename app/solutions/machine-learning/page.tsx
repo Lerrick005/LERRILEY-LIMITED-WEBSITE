@@ -1,9 +1,12 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Eyebrow } from "@/components/design-system/eyebrow";
 import { CtaSection } from "@/components/sections/cta-section";
+import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
+import { FaqPageSchema } from "@/components/seo/faq-page-schema";
+import { ServiceSchema } from "@/components/seo/service-schema";
 import { TrainingLoop } from "@/components/visuals/training-loop";
 import { machineLearningPage as page } from "@/content/solutions/machine-learning";
 
@@ -21,6 +24,19 @@ export const metadata: Metadata = {
 export default function MachineLearningPage() {
   return (
     <main id="main" className={styles.page}>
+      <ServiceSchema
+        name="Machine Learning"
+        description={page.lead}
+        path="/solutions/machine-learning"
+      />
+      <FaqPageSchema items={page.faq} />
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Solutions", path: "/solutions" },
+          { name: "Machine Learning", path: "/solutions/machine-learning" },
+        ]}
+      />
       <div className={styles.breadcrumbsWrap}>
         <Breadcrumbs
           items={[

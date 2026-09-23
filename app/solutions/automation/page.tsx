@@ -1,9 +1,12 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Eyebrow } from "@/components/design-system/eyebrow";
 import { CtaSection } from "@/components/sections/cta-section";
+import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
+import { FaqPageSchema } from "@/components/seo/faq-page-schema";
+import { ServiceSchema } from "@/components/seo/service-schema";
 import { AutomationTrigger } from "@/components/visuals/automation-trigger";
 import { automationPage as page } from "@/content/solutions/automation";
 
@@ -21,6 +24,19 @@ export const metadata: Metadata = {
 export default function AutomationPage() {
   return (
     <main id="main" className={styles.page}>
+      <ServiceSchema
+        name="Automation"
+        description={page.lead}
+        path="/solutions/automation"
+      />
+      <FaqPageSchema items={page.faq} />
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Solutions", path: "/solutions" },
+          { name: "Automation", path: "/solutions/automation" },
+        ]}
+      />
       <div className={styles.breadcrumbsWrap}>
         <Breadcrumbs
           items={[

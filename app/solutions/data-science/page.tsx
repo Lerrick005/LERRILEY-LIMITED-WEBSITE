@@ -1,9 +1,12 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Eyebrow } from "@/components/design-system/eyebrow";
 import { CtaSection } from "@/components/sections/cta-section";
+import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
+import { FaqPageSchema } from "@/components/seo/faq-page-schema";
+import { ServiceSchema } from "@/components/seo/service-schema";
 import { DataFunnel } from "@/components/visuals/data-funnel";
 import { dataSciencePage as page } from "@/content/solutions/data-science";
 
@@ -21,6 +24,19 @@ export const metadata: Metadata = {
 export default function DataSciencePage() {
   return (
     <main id="main" className={styles.page}>
+      <ServiceSchema
+        name="Data Science"
+        description={page.lead}
+        path="/solutions/data-science"
+      />
+      <FaqPageSchema items={page.faq} />
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Solutions", path: "/solutions" },
+          { name: "Data Science", path: "/solutions/data-science" },
+        ]}
+      />
       <div className={styles.breadcrumbsWrap}>
         <Breadcrumbs
           items={[

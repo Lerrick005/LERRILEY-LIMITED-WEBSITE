@@ -4,6 +4,9 @@ import Link from "next/link";
 import { Eyebrow } from "@/components/design-system/eyebrow";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CtaSection } from "@/components/sections/cta-section";
+import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
+import { FaqPageSchema } from "@/components/seo/faq-page-schema";
+import { ServiceSchema } from "@/components/seo/service-schema";
 import { WebStack } from "@/components/visuals/web-stack";
 import { webDevelopmentPage as page } from "@/content/solutions/web-development";
 
@@ -21,6 +24,19 @@ export const metadata: Metadata = {
 export default function WebDevelopmentPage() {
   return (
     <main id="main" className={styles.page}>
+      <ServiceSchema
+        name="Web Development"
+        description={page.lead}
+        path="/solutions/web-development"
+      />
+      <FaqPageSchema items={page.faq} />
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Solutions", path: "/solutions" },
+          { name: "Web Development", path: "/solutions/web-development" },
+        ]}
+      />
       <div className={styles.breadcrumbsWrap}>
         <Breadcrumbs
           items={[
