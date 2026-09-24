@@ -7,6 +7,7 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
 import { FaqPageSchema } from "@/components/seo/faq-page-schema";
 import { ServiceSchema } from "@/components/seo/service-schema";
+import { PageImage } from "@/components/visuals/page-image";
 import { AutomationTrigger } from "@/components/visuals/automation-trigger";
 import { automationPage as page } from "@/content/solutions/automation";
 
@@ -56,6 +57,15 @@ export default function AutomationPage() {
         <div className={styles.headerVisual}>
           <AutomationTrigger />
         </div>
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/automation-workflow.webp"
+          alt="A workflow diagram or automation in progress"
+          width={1600}
+          height={1200}
+        />
+      </div>
       </header>
 
       <section className={styles.section} aria-labelledby="problems-title" data-reveal>
