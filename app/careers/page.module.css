@@ -178,3 +178,15 @@
     padding: var(--s-16) 0;
   }
 }
+
+/* --- Careers page image -------------------------------------------------- */
+
+.solutionImage {
+  margin: var(--s-16) 0 0;
+}
+
+@media (max-width: 640px) {
+  .solutionImage {
+    margin-top: var(--s-12);
+  }
+}

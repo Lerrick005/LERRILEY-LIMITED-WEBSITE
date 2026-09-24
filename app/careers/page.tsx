@@ -1,7 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { CtaSection } from "@/components/sections/cta-section";
 import { PageHeader } from "@/components/sections/page-header";
+import { PageImage } from "@/components/visuals/page-image";
 import { HumanScale } from "@/components/visuals/human-scale";
 import { careersPage } from "@/content/careers-culture";
 import { loadCollection } from "@/lib/content/loader";
@@ -35,6 +36,15 @@ export default function CareersPage() {
         <div className={styles.headerVisual}>
           <HumanScale />
         </div>
+      </div>
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/careers-workspace.webp"
+          alt="A workspace where the Lerriley team works"
+          width={1600}
+          height={1200}
+        />
       </div>
 
       <section className={styles.section} aria-labelledby="working-title">
