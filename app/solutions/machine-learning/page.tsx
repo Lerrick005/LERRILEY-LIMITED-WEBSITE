@@ -7,6 +7,7 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
 import { FaqPageSchema } from "@/components/seo/faq-page-schema";
 import { ServiceSchema } from "@/components/seo/service-schema";
+import { PageImage } from "@/components/visuals/page-image";
 import { TrainingLoop } from "@/components/visuals/training-loop";
 import { machineLearningPage as page } from "@/content/solutions/machine-learning";
 
@@ -56,6 +57,15 @@ export default function MachineLearningPage() {
         <div className={styles.headerVisual}>
           <TrainingLoop />
         </div>
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/machine-learning-training.webp"
+          alt="A screen showing a model or training output"
+          width={1600}
+          height={1200}
+        />
+      </div>
       </header>
 
       <section className={styles.section} aria-labelledby="problems-title" data-reveal>
