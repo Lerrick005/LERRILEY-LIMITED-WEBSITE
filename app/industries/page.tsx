@@ -87,8 +87,20 @@ export default function IndustriesPage() {
         heading="Does your industry look like one of these?"
         body="Tell us what you are trying to solve. If the problem fits what we do, we will say so. If it does not, we will say that too."
         primaryLabel="Explore capabilities"
+        primaryTrackEvent={{
+          name: "cta_click",
+          location: "industries-closing",
+          label: "Explore capabilities",
+          intent: "explore",
+        }}
         primaryHref="/solutions"
         secondaryLabel="About Lerriley"
+        secondaryTrackEvent={{
+          name: "cta_click",
+          location: "industries-closing",
+          label: "About Lerriley",
+          intent: "company",
+        }}
         secondaryHref="/company"
       />
     </main>
