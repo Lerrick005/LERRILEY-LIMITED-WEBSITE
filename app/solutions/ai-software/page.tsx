@@ -188,8 +188,20 @@ export default function AiSoftwarePage() {
           heading={page.ctaHeading}
           body={page.ctaBody}
           primaryLabel="Start a Project"
+          primaryTrackEvent={{
+            name: "cta_click",
+            location: "ai-software-closing",
+            label: "Start a Project",
+            intent: "discuss-ai",
+          }}
           primaryHref="/contact?intent=discuss-ai"
           secondaryLabel="Explore other capabilities"
+          secondaryTrackEvent={{
+            name: "cta_click",
+            location: "ai-software-closing",
+            label: "Explore other capabilities",
+            intent: "explore",
+          }}
           secondaryHref="/solutions"
         />
       </div>
