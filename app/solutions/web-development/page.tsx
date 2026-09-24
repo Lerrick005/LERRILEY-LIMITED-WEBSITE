@@ -188,8 +188,20 @@ export default function WebDevelopmentPage() {
           heading={page.ctaHeading}
           body={page.ctaBody}
           primaryLabel="Start a Project"
+          primaryTrackEvent={{
+            name: "cta_click",
+            location: "web-development-closing",
+            label: "Start a Project",
+            intent: "start-project",
+          }}
           primaryHref="/contact?intent=start-project"
           secondaryLabel="Explore other capabilities"
+          secondaryTrackEvent={{
+            name: "cta_click",
+            location: "web-development-closing",
+            label: "Explore other capabilities",
+            intent: "explore",
+          }}
           secondaryHref="/solutions"
         />
       </div>
