@@ -140,8 +140,20 @@ export default function CareersPage() {
         heading="Interested in working with us?"
         body="Send a note and a link to something you have built. We read everything and we reply either way."
         primaryLabel="About Lerriley"
+        primaryTrackEvent={{
+          name: "cta_click",
+          location: "careers-closing",
+          label: "About Lerriley",
+          intent: "company",
+        }}
         primaryHref="/company"
         secondaryLabel="Explore capabilities"
+        secondaryTrackEvent={{
+          name: "cta_click",
+          location: "careers-closing",
+          label: "Explore capabilities",
+          intent: "explore",
+        }}
         secondaryHref="/solutions"
       />
     </main>
