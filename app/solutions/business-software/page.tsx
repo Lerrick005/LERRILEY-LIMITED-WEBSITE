@@ -7,6 +7,7 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
 import { FaqPageSchema } from "@/components/seo/faq-page-schema";
 import { ServiceSchema } from "@/components/seo/service-schema";
+import { PageImage } from "@/components/visuals/page-image";
 import { BusinessWorkflow } from "@/components/visuals/business-workflow";
 import { businessSoftwarePage as page } from "@/content/solutions/business-software";
 
@@ -56,6 +57,15 @@ export default function BusinessSoftwarePage() {
         <div className={styles.headerVisual}>
           <BusinessWorkflow />
         </div>
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/business-software-operations.webp"
+          alt="An operational setting where business software is used"
+          width={1600}
+          height={1200}
+        />
+      </div>
       </header>
 
       <section className={styles.section} aria-labelledby="problems-title" data-reveal>
