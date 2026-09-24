@@ -7,6 +7,7 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
 import { FaqPageSchema } from "@/components/seo/faq-page-schema";
 import { ServiceSchema } from "@/components/seo/service-schema";
+import { PageImage } from "@/components/visuals/page-image";
 import { WebStack } from "@/components/visuals/web-stack";
 import { webDevelopmentPage as page } from "@/content/solutions/web-development";
 
@@ -57,6 +58,15 @@ export default function WebDevelopmentPage() {
           <WebStack />
         </div>
       </header>
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/web-development-workspace.webp"
+          alt="A workspace with code and design in progress"
+          width={1600}
+          height={1200}
+        />
+      </div>
 
       <section className={styles.section} aria-labelledby="problems-title" data-reveal>
         <p className={styles.sectionEyebrow}>Problems</p>
