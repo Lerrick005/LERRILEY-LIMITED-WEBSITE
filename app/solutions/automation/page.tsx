@@ -188,8 +188,20 @@ export default function AutomationPage() {
           heading={page.ctaHeading}
           body={page.ctaBody}
           primaryLabel="Start a Project"
+          primaryTrackEvent={{
+            name: "cta_click",
+            location: "automation-closing",
+            label: "Start a Project",
+            intent: "discuss-automation",
+          }}
           primaryHref="/contact?intent=discuss-automation"
           secondaryLabel="Explore other capabilities"
+          secondaryTrackEvent={{
+            name: "cta_click",
+            location: "automation-closing",
+            label: "Explore other capabilities",
+            intent: "explore",
+          }}
           secondaryHref="/solutions"
         />
       </div>
