@@ -1,0 +1,32 @@
+﻿/* ==========================================================================
+   PageImage
+   --------------------------------------------------------------------------
+   A photograph from public/, wrapped in a bordered container with rounded
+   corners. The image keeps its aspect ratio. The container is sized by the
+   page that uses it.
+   ========================================================================== */
+
+.wrap {
+  position: relative;
+  width: 100%;
+  border-radius: var(--r-3);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* No motion in this component; the block is here so future edits to
+     the component do not forget to add one. */
+  .wrap {
+    transition: none;
+  }
+}
