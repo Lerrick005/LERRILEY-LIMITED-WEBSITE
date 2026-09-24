@@ -188,8 +188,20 @@ export default function DataSciencePage() {
           heading={page.ctaHeading}
           body={page.ctaBody}
           primaryLabel="Start a Project"
+          primaryTrackEvent={{
+            name: "cta_click",
+            location: "data-science-closing",
+            label: "Start a Project",
+            intent: "discuss-data",
+          }}
           primaryHref="/contact?intent=discuss-data"
           secondaryLabel="Explore other capabilities"
+          secondaryTrackEvent={{
+            name: "cta_click",
+            location: "data-science-closing",
+            label: "Explore other capabilities",
+            intent: "explore",
+          }}
           secondaryHref="/solutions"
         />
       </div>
