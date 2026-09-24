@@ -7,6 +7,7 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { BreadcrumbListSchema } from "@/components/seo/breadcrumb-list-schema";
 import { FaqPageSchema } from "@/components/seo/faq-page-schema";
 import { ServiceSchema } from "@/components/seo/service-schema";
+import { PageImage } from "@/components/visuals/page-image";
 import { AiPipeline } from "@/components/visuals/ai-pipeline";
 import { aiSoftwarePage as page } from "@/content/solutions/ai-software";
 
@@ -56,6 +57,15 @@ export default function AiSoftwarePage() {
         <div className={styles.headerVisual}>
           <AiPipeline />
         </div>
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/ai-software-pipeline.webp"
+          alt="A screen showing an AI pipeline or data flow"
+          width={1600}
+          height={1200}
+        />
+      </div>
       </header>
 
       <section className={styles.section} aria-labelledby="problems-title" data-reveal>
