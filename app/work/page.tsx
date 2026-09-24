@@ -1,7 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { CtaSection } from "@/components/sections/cta-section";
 import { PageHeader } from "@/components/sections/page-header";
+import { PageImage } from "@/components/visuals/page-image";
 import { WorkPipeline } from "@/components/visuals/work-pipeline";
 import { howWeWork } from "@/content/work";
 
@@ -47,6 +48,15 @@ export default function WorkPage() {
         title={howWeWork.heading}
         lead="Case studies are published on this page when they meet the standard described below. Until then, the page states the standard openly rather than filling the space with work that has not been cleared for publication."
       />
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/work-screenshot.webp"
+          alt="A screenshot of a system built by Lerriley"
+          width={1600}
+          height={1000}
+        />
+      </div>
 
       <section className={styles.prose} aria-labelledby="statement-title">
         <h2 id="statement-title" className={styles.sectionTitle}>
