@@ -188,8 +188,20 @@ export default function MachineLearningPage() {
           heading={page.ctaHeading}
           body={page.ctaBody}
           primaryLabel="Start a Project"
+          primaryTrackEvent={{
+            name: "cta_click",
+            location: "machine-learning-closing",
+            label: "Start a Project",
+            intent: "discuss-data",
+          }}
           primaryHref="/contact?intent=discuss-data"
           secondaryLabel="Explore other capabilities"
+          secondaryTrackEvent={{
+            name: "cta_click",
+            location: "machine-learning-closing",
+            label: "Explore other capabilities",
+            intent: "explore",
+          }}
           secondaryHref="/solutions"
         />
       </div>
