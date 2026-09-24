@@ -188,8 +188,20 @@ export default function BusinessSoftwarePage() {
           heading={page.ctaHeading}
           body={page.ctaBody}
           primaryLabel="Start a Project"
+          primaryTrackEvent={{
+            name: "cta_click",
+            location: "business-software-closing",
+            label: "Start a Project",
+            intent: "start-project",
+          }}
           primaryHref="/contact?intent=start-project"
           secondaryLabel="Explore other capabilities"
+          secondaryTrackEvent={{
+            name: "cta_click",
+            location: "business-software-closing",
+            label: "Explore other capabilities",
+            intent: "explore",
+          }}
           secondaryHref="/solutions"
         />
       </div>
