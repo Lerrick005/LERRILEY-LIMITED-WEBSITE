@@ -101,14 +101,25 @@ export default function TechnologyPage() {
           ))}
         </ol>
       </section>
-
       <CtaSection
         heading="Have a problem worth engineering?"
         body="Tell us what you are building. We will tell you whether it fits what we do, and which layers of the stack it involves."
         primaryLabel="Explore capabilities"
         primaryHref="/solutions"
+        primaryTrackEvent={{
+          name: "cta_click",
+          location: "technology-closing",
+          label: "Explore capabilities",
+          intent: "explore",
+        }}
         secondaryLabel="About Lerriley"
         secondaryHref="/company"
+        secondaryTrackEvent={{
+          name: "cta_click",
+          location: "technology-closing",
+          label: "About Lerriley",
+          intent: "company",
+        }}
       />
 
       <FooterLine />
