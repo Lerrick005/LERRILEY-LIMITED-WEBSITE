@@ -1,8 +1,9 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { CtaSection } from "@/components/sections/cta-section";
 import { FooterLine } from "@/components/sections/footer-line";
 import { PageHeader } from "@/components/sections/page-header";
+import { PageImage } from "@/components/visuals/page-image";
 import { TechStack } from "@/components/visuals/tech-stack";
 import {
   approachContent,
@@ -27,6 +28,12 @@ export default function TechnologyPage() {
   return (
     <main id="main" className={styles.page}>
       <div className={styles.headerWrap}>
+        <PageImage
+          src="/technology-infrastructure.webp"
+          alt="Server infrastructure used by Lerriley"
+          width={1600}
+          height={1200}
+        />
         <PageHeader
           eyebrow="Technology"
           title="Chosen for the problem, not the fashion"
