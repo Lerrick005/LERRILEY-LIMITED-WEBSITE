@@ -194,3 +194,15 @@
   margin: 0;
   text-wrap: pretty;
 }
+
+/* --- Solutions overview image -------------------------------------------- */
+
+.solutionsImage {
+  margin: var(--s-16) 0 0;
+}
+
+@media (max-width: 640px) {
+  .solutionsImage {
+    margin-top: var(--s-12);
+  }
+}

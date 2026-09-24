@@ -1,6 +1,7 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
+import { PageImage } from "@/components/visuals/page-image";
 import { CapabilityRing } from "@/components/visuals/capability-ring";
 import { getSolutions } from "@/content/solutions";
 
@@ -32,6 +33,15 @@ export default function SolutionsPage() {
         <div className={styles.headerVisual}>
           <CapabilityRing />
         </div>
+
+      <div className={styles.solutionsImage}>
+        <PageImage
+          src="/solutions-overview.webp"
+          alt="A workspace where Lerriley engineering happens"
+          width={1600}
+          height={1200}
+        />
+      </div>
       </header>
 
       <section className={styles.intro} aria-labelledby="intro-title">
