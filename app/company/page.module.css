@@ -197,3 +197,15 @@
   max-width: 66ch;
   text-wrap: pretty;
 }
+
+/* --- Company page image -------------------------------------------------- */
+
+.solutionImage {
+  margin: var(--s-16) 0 0;
+}
+
+@media (max-width: 640px) {
+  .solutionImage {
+    margin-top: var(--s-12);
+  }
+}

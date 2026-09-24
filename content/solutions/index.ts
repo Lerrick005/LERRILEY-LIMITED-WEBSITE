@@ -42,7 +42,7 @@ export const solutions: readonly Solution[] = [
     summary:
       "High-performance websites and sophisticated web applications, engineered for speed, accessibility and search visibility.",
     order: 1,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "business-software",

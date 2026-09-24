@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { CtaSection } from "@/components/sections/cta-section";
 import { FooterLine } from "@/components/sections/footer-line";
 import { PageHeader } from "@/components/sections/page-header";
+import { PageImage } from "@/components/visuals/page-image";
 import { CompassMark } from "@/components/visuals/compass-mark";
 import { companyPage } from "@/content/company-page";
 
@@ -29,6 +30,15 @@ export default function CompanyPageRoute() {
         <div className={styles.headerVisual}>
           <CompassMark />
         </div>
+      </div>
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/company-office.webp"
+          alt="The Lerriley office building"
+          width={1600}
+          height={1200}
+        />
       </div>
 
       <section
