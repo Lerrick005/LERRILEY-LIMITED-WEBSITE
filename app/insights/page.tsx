@@ -1,7 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { PageHeader } from "@/components/sections/page-header";
+import { PageImage } from "@/components/visuals/page-image";
 import { EditorialMark } from "@/components/visuals/editorial-mark";
 import { loadCollection } from "@/lib/content/loader";
 import { InsightFrontmatterSchema } from "@/lib/content/schemas";
@@ -31,6 +32,15 @@ export default function InsightsIndexPage() {
         <div className={styles.headerVisual}>
           <EditorialMark />
         </div>
+      </div>
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/insights-anchor.webp"
+          alt="A notebook or screen, suggesting writing and reading"
+          width={1600}
+          height={1200}
+        />
       </div>
 
       {entries.length === 0 ? (
