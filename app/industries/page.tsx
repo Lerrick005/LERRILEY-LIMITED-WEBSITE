@@ -1,7 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CtaSection } from "@/components/sections/cta-section";
+import { PageImage } from "@/components/visuals/page-image";
 import { PageHeader } from "@/components/sections/page-header";
 import {
   INDUSTRY_MARKS,
@@ -30,6 +31,15 @@ export default function IndustriesPage() {
         title="Where we work"
         lead="Five industries where the same pattern appears: a workflow that has outgrown the tools around it. Each section below describes the problem, the technology that addresses it, and the capability that fits."
       />
+
+      <div className={styles.solutionImage}>
+        <PageImage
+          src="/industries-clinic.webp"
+          alt="A clinic reception where business systems are used"
+          width={1600}
+          height={1200}
+        />
+      </div>
 
       <ol className={styles.sections}>
         {sections.map((section, i) => {
