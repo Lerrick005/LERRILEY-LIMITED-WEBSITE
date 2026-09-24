@@ -97,8 +97,20 @@ export default function WorkPage() {
         heading="Have a problem worth building?"
         body="A project begins the same way every case study begins, with a conversation about the problem. We will tell you whether it fits."
         primaryLabel="Explore capabilities"
+        primaryTrackEvent={{
+          name: "cta_click",
+          location: "work-closing",
+          label: "Explore capabilities",
+          intent: "explore",
+        }}
         primaryHref="/solutions"
         secondaryLabel="About Lerriley"
+        secondaryTrackEvent={{
+          name: "cta_click",
+          location: "work-closing",
+          label: "About Lerriley",
+          intent: "company",
+        }}
         secondaryHref="/company"
       />
     </main>
